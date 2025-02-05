@@ -1,0 +1,6 @@
+@use 'ControlPanel/Dashboard';
+@use 'Index/Variables' as *;
+
+#ControlPanel {
+    background-color: $color-primary-1100;
+}

@@ -1,0 +1,127 @@
+@use 'Functions' as *;
+
+$color-white: #ffffff;
+
+$color-primary-1100: #001111;
+$color-primary-1000: #002222;
+$color-primary-900: #003333;
+$color-primary-800: #004444;
+$color-primary-700: #005555;
+$color-primary-600: #006666;
+$color-primary-500: #007777;
+$color-primary-400: #33a6a6;
+$color-primary-300: #66bdbd;
+$color-primary-200: #99d3d3;
+$color-primary-100: #cceaea;
+$color-primary-050: #e6f5f5;
+
+$color-primary-emphasis-medium: #bddede;
+$color-primary-emphasis-text: #aaffff;
+$color-primary-emphasis-disabled: #61b0b0;
+
+$color-secondary-700:  #009999;
+$color-secondary-600:  #00b3b3;
+$color-secondary-500:  #00cccc;
+$color-secondary-400:  #33d6d6;
+
+$color-gray-1000: #1c1c1e;
+$color-gray-900: #2c2c2e;
+$color-gray-800: #3a3a3c;
+$color-gray-700: #48484a;
+$color-gray-600: #636366;
+$color-gray-550: #8e8e93;
+$color-gray-500: #aeaeb2;
+$color-gray-400: #c7c7cc;
+$color-gray-300: #d1d1d6;
+$color-gray-200: #e5e5ea;
+$color-gray-100: #f2f2f7;
+
+$color-status-error: #b00038;
+$color-status-warning: #ffc964;
+$color-status-success: #006e50;
+$color-status-info: #23c197;
+
+$gap-tiny-mobile: toRem(4);
+$gap-x-small-mobile: toRem(8);
+$gap-small-mobile: toRem(12);
+$gap-medium-mobile: toRem(16);
+$gap-base-mobile: toRem(24);
+$gap-large-mobile: toRem(48);
+$gap-x-large-mobile: toRem(64);
+
+$gap-tiny-tablet: toRem(6);
+$gap-x-small-tablet: toRem(12);
+$gap-small-tablet: toRem(16);
+$gap-medium-tablet: toRem(20);
+$gap-base-tablet: toRem(32);
+$gap-large-tablet: toRem(64);
+$gap-x-large-tablet: toRem(96);
+
+$gap-tiny-laptop: toRem(7);
+$gap-x-small-laptop: toRem(14);
+$gap-small-laptop: toRem(20);
+$gap-medium-laptop: toRem(24);
+$gap-base-laptop: toRem(40);
+$gap-large-laptop: toRem(80);
+$gap-x-large-laptop: toRem(112);
+
+$gap-tiny-desktop: toRem(8);
+$gap-x-small-desktop: toRem(16);
+$gap-small-desktop: toRem(24);
+$gap-medium-desktop: toRem(32);
+$gap-base-desktop: toRem(48);
+$gap-large-desktop: toRem(96);
+$gap-x-large-desktop: toRem(128);
+
+$font-size-title-small-mobile-min: toRem(16);
+$font-size-title-small-mobile-max: toRem(20);
+$font-size-title-medium-mobile-min: toRem(21);
+$font-size-title-medium-mobile-max: toRem(30);
+$font-size-title-large-mobile-min: toRem(31);
+$font-size-title-large-mobile-max: toRem(34);
+
+$font-size-title-small-tablet-min: toRem(18);
+$font-size-title-small-tablet-max: toRem(24);
+$font-size-title-medium-tablet-min: toRem(25);
+$font-size-title-medium-tablet-max: toRem(32);
+$font-size-title-large-tablet-min: toRem(33);
+$font-size-title-large-tablet-max: toRem(36);
+
+$font-size-title-small-laptop-min: toRem(20);
+$font-size-title-small-laptop-max: toRem(26);
+$font-size-title-medium-laptop-min: toRem(27);
+$font-size-title-medium-laptop-max: toRem(35);
+$font-size-title-large-laptop-min: toRem(36);
+$font-size-title-large-laptop-max: toRem(40);
+
+$font-size-title-small-desktop-min: toRem(22);
+$font-size-title-small-desktop-max: toRem(28);
+$font-size-title-medium-desktop-min: toRem(29);
+$font-size-title-medium-desktop-max: toRem(36);
+$font-size-title-large-desktop-min: toRem(37);
+$font-size-title-large-desktop-max: toRem(42);
+
+$font-size-body-mobile: toRem(16);
+$font-size-body-tablet: toRem(17);
+$font-size-body-laptop: toRem(18);
+$font-size-body-desktop: toRem(18);
+
+$font-family: 'Roboto Condensed';
+
+$font-weight-thin: 100;
+$font-weight-extralight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+$letter-spacing-small-title: toRem(.1);  
+$letter-spacing-medium-title: toRem(.5);
+$letter-spacing-large-title: toRem(1);
+
+$letter-spacing-body: toRem(.2);
+
+$transition: .5s ease;       

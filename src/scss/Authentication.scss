@@ -1,0 +1,33 @@
+@use 'Authentication/SignIn';
+@use 'Authentication/SignUp';
+@use 'Index/Variables' as *;
+
+@property --backgroundColor1 {
+    syntax: '<color>';
+    initial-value: #{$color-primary-1100};
+    inherits: false;
+}
+
+@property --backgroundColor2 {
+    syntax: '<color>';
+    initial-value: #{$color-primary-900};
+    inherits: false;
+}
+
+@mixin setBackgroundColors($color1, $color2) {
+    --backgroundColor1: #{$color1};
+    --backgroundColor2: #{$color2};
+}
+
+#Authentication {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to bottom, var(--backgroundColor1), var(--backgroundColor2), var(--backgroundColor1));
+    z-index: 1;
+    position: relative;
+    transition: --backgroundColor1 $transition, --backgroundColor2 $transition;
+
+    &.verifiedData1, &.verifiedData2, &.verifiedData3 { @include setBackgroundColors($color-primary-1000, $color-primary-800) }
+    &.verifiedData4, &.verifiedData5 { @include setBackgroundColors($color-primary-900, $color-primary-1000) }
+    &.verifiedData6, &.verifiedData7, &.verifiedData8 { @include setBackgroundColors($color-primary-1000, $color-primary-800) }
+}

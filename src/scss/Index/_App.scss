@@ -1,0 +1,120 @@
+@use 'Variables' as *;
+@use 'Functions' as *;
+
+::selection {
+    background-color: $color-primary-500;
+    color: $color-primary-emphasis-text;
+}
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: $font-family;
+  color: $color-gray-100;
+}
+
+h1, h2, h3, span, a, button { text-transform: uppercase; }
+
+h1 {
+  font-size: clamp($font-size-title-large-mobile-min, 5vw, $font-size-title-large-mobile-max);
+  font-weight: $font-weight-extrabold;
+  letter-spacing: $letter-spacing-large-title;
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp($font-size-title-medium-mobile-min, 4.5vw, $font-size-title-medium-mobile-max);
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-medium-title;
+}
+
+h3 {
+  font-size: clamp($font-size-title-small-mobile-min, 4vw, $font-size-title-small-mobile-max);
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-small-title;
+}
+
+p, span, a, button, i {
+  font-size: $font-size-body-mobile;
+  letter-spacing: $letter-spacing-body;
+}
+
+p { font-weight: $font-weight-light; }
+span { font-weight: $font-weight-regular; }
+a, button { font-weight: $font-weight-bold; }
+
+@media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
+  h1 { font-size: clamp($font-size-title-large-tablet-min, 4.5vw, $font-size-title-large-tablet-max); }
+  h2 { font-size: clamp($font-size-title-medium-tablet-min, 4vw, $font-size-title-medium-tablet-max); }
+  h3 { font-size: clamp($font-size-title-small-tablet-min, 3.5vw, $font-size-title-small-tablet-max); }
+  p, span, a, button, i { font-size: $font-size-body-tablet; }
+}
+
+@media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
+  h1 { font-size: clamp($font-size-title-large-laptop-min, 4vw, $font-size-title-large-laptop-max); }
+  h2 { font-size: clamp($font-size-title-medium-laptop-min, 3.5vw, $font-size-title-medium-laptop-max); }
+  h3 { font-size: clamp($font-size-title-small-laptop-min, 3vw, $font-size-title-small-laptop-max); }
+  p, span, a, button, i { font-size: $font-size-body-laptop; }
+}
+
+@media only screen and (min-width: 80rem) {
+  h1 { font-size: clamp($font-size-title-large-desktop-min, 3.5vw, $font-size-title-large-desktop-max); }
+  h2 { font-size: clamp($font-size-title-medium-desktop-min, 3vw, $font-size-title-medium-desktop-max); }
+  h3 { font-size: clamp($font-size-title-small-desktop-min, 2.5vw, $font-size-title-small-desktop-max); }
+  p, span, a, button, i { font-size: $font-size-body-desktop; }
+}
+
+ul, ol { list-style: none; }
+
+a { 
+  display: inline-block;
+  width: 100%;
+  text-decoration: none; 
+  color: $color-gray-100;
+}
+
+a, button, select { 
+  cursor: pointer; 
+  font-weight: $font-weight-bold;
+}
+
+input, button, textarea, select {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+}
+
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+img, video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}

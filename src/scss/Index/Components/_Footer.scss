@@ -1,0 +1,104 @@
+@use '../Variables' as *;
+@use '../Functions' as *;
+
+@property --backgroundColor1 {
+    syntax: '<color>';
+    initial-value: #003333;
+    inherits: false;
+  }
+  
+@property --backgroundColor2 {
+    syntax: '<color>';
+    initial-value: #002222;
+    inherits: false;
+}
+  
+#footer {
+    background: linear-gradient(to bottom, var(--backgroundColor1), var(--backgroundColor2));
+    box-shadow:0 0 toRem(100) 0 $color-primary-1000;
+    padding: $gap-base-mobile 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap-small-mobile;
+    transition: --backgroundColor1 $transition, --backgroundColor2 $transition, box-shadow $transition;
+
+    &:hover {
+        --backgroundColor1: #002222;
+        --backgroundColor2: #001111;
+        box-shadow: 0 0 toRem(100) 0 $color-primary-1100;
+    }
+
+    /* Links */
+    ul { 
+        display: flex; 
+
+        li { margin: $gap-x-small-mobile 0; }
+        a {
+            padding: $gap-x-small-mobile $gap-medium-mobile;  
+            color: $color-primary-emphasis-medium;
+            transition: $transition;
+
+            &:hover {
+                color: $color-white;
+
+                i { color: $color-white; }
+            }
+        }
+    }
+
+    /* Copyright */
+    span { 
+        padding: $gap-x-small-mobile $gap-medium-mobile;  
+        color: $color-primary-emphasis-medium;
+        transition: $transition;
+        
+        &:hover { color: $color-white; }
+    }
+
+    /* Tablet */
+    @media only screen and (min-width: 47.938rem) {
+        & { 
+            padding-top: $gap-medium-tablet;
+            padding-bottom: $gap-medium-tablet;
+
+            li { 
+            margin-top: $gap-x-small-tablet;
+            margin-bottom: $gap-x-small-tablet; 
+            }
+
+            a, span { padding: $gap-x-small-tablet $gap-medium-tablet; }
+        }
+    }
+    /* Laptop */
+    @media only screen and (min-width: 61.188rem) {
+        & { 
+            padding-top: $gap-medium-laptop;
+            padding-bottom: $gap-medium-laptop; 
+            flex-direction: row;
+            gap: 0;
+
+            ul { 
+                gap: $gap-medium-laptop;
+                
+                li { 
+                    margin: 0; 
+
+                    a { padding: 0; }
+                }
+            }
+            
+            span { padding: 0; }
+        }
+    }
+    /* Desktop */
+    @media only screen and (min-width: 80rem) {
+        & { 
+            padding-top: $gap-medium-desktop;
+            padding-bottom: $gap-medium-desktop; 
+
+            ul { gap: $gap-medium-desktop; }
+        }
+    }
+}

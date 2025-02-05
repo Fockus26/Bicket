@@ -1,0 +1,264 @@
+@use '../Index/Variables' as *;
+@use '../Index/Functions' as *;
+
+#Dashboard {
+    flex-direction: column;
+    gap: $gap-base-mobile;
+
+    table {
+        display: grid;
+        width: 100%;
+
+        thead {
+            background-color: hsl(180, 100%, 12%);
+
+            tr {
+                grid-template-columns: auto 1fr 1fr 1fr auto;
+                align-items: center;
+                border-color: rgba(255, 255, 255, 0.8);
+
+                &:hover { border-color: rgba(255, 255, 255, 1); }
+
+                i {
+                    color: rgba(255, 255, 255, 1);
+                    cursor: pointer;
+                    transition: $transition;
+
+                    &:hover { color: rgba(255, 255, 255, 0.8); }
+
+                    &.fa-trash-can { 
+                        color: white; 
+                        &:hover { color: hsl(338, 95%, 85%); }
+                    }
+                }
+
+                th {
+                    display: flex;
+                    align-items: center;
+                    padding: toRem(20);
+                    gap: toRem(20);
+
+                    &:hover {
+                        input, input::placeholder { color: rgba(255, 255, 255, 0.8); }
+                    } 
+
+                    input {
+                        color: rgba(255, 255, 255, 1);
+                        border-bottom: toRem(1) solid transparent;
+                        text-transform: uppercase;
+                        transition: $transition;
+
+                        &:focus, &:not(:placeholder-shown) { border-color: hsl(180, 100%, 50%); }
+
+                        &::placeholder {
+                            color: rgba(255, 255, 255, 1);
+                            transition: $transition;
+                            font-weight: $font-weight-bold;
+                        }
+                    }
+
+                    .sort {
+                        display: flex;
+                        flex-direction: column;
+                        gap: toRem(5);
+                        min-width: toRem(10);
+
+                        i {
+                            color: rgba(255, 255, 255, 0.5);
+                            line-height: 0;
+                            transition: $transition;
+                            cursor: pointer;
+
+                            &:hover { color: rgba(255, 255, 255, 0.8) }
+                            .active { color: rgba(255, 255, 255, 1); }
+                            
+                        }
+                    }
+                }
+            }
+        }
+
+        tbody {
+            background-color: hsl(180, 100%, 9%);
+
+            &:hover {
+                .details {
+                    height: auto;
+                    padding-bottom: toRem(10);
+                    opacity: 1;
+                }
+            }
+
+            tr { 
+                border-bottom: toRem(1) solid hsl(180, 100%, 7%) !important; 
+
+                &:hover { background-color: hsl(180, 100%, 6%); }
+            }
+        }
+
+        tfoot {
+            background-color: hsl(180, 100%, 7%);
+
+            &:hover { 
+                .details {
+                    height: auto;
+                    padding-bottom: toRem(10);
+                    opacity: 1;
+                }
+            }
+
+            tr {
+                &:hover { background-color: hsl(180, 100%, 6%); }
+            }
+        }
+
+        tr {
+            padding: 0 toRem(20);
+            border-left: toRem(3) solid transparent;
+            transition: $transition;
+            display: grid;
+
+            .data {
+                display: grid;
+                grid-template-columns: auto 1fr 1fr 1fr;
+                align-items: center;
+
+                i {
+                    transition: $transition;
+                    cursor: pointer;
+                }
+
+                td {
+                    padding: toRem(20);
+                    min-height: toRem(65);
+                    transition: $transition;
+                    display: flex;
+                    align-items: center;
+
+                    &:last-child {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    a { transition: $transition }
+
+                    p {
+                        font-weight: $font-weight-semibold;
+                        margin-bottom: 0;
+                        width: fit-content;
+                        line-height: auto;
+                    }
+                }
+            }
+
+            .details {
+                width: 100%;
+                padding: 0 toRem(20) 0 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                height: 0;
+                overflow: hidden;
+                transition: height 0.25s ease, padding-bottom 0.5s ease, opacity 1s ease;
+                opacity: 0;
+
+                span {
+                    text-transform: none;
+                    margin: 0;
+                    color: rgba(255, 255, 255, 0.6);
+                    display: flex;
+                    align-items: center;
+                    gap: toRem(10);
+                }
+
+                i {
+                    line-height: 0;
+                    opacity: 0.6;
+                }
+
+                div {
+                    display: flex;
+                    justify-content: space-evenly;
+
+                    .status {
+                        .success { color: $color-status-success; }
+                        .error { color: $color-status-error; }
+                        .warning { color: $color-status-warning; }
+                        .process { color: hsl(0, 0%, 40%); }
+                    }
+                }
+            }   
+        }
+
+        .loading-data {
+            color: transparent !important;
+            background-color: hsl(180, 100%, 20%);
+            border-radius: toRem(4);
+            animation: pulse 1.5s infinite;
+            height: fit-content;
+        }
+          
+        @keyframes pulse {
+            0% { background-color: hsl(180, 100%, 20%); }
+            50% { background-color: hsl(180, 100%, 27.5%); }
+            100% { background-color: hsl(180, 100%, 20%); }
+        }
+    }
+
+    .pagination {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $gap-medium-mobile;
+
+        nav {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: $gap-base-mobile;
+
+            ul {
+                display: flex;
+                gap: $gap-x-small-mobile;
+
+                li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: toRem(40);
+                    width: toRem(40);
+                    border-radius: toRem(6);
+                    transition: $transition;
+
+                    &[data-valid='true'] {
+                        cursor: pointer;
+
+                        &:hover {
+                            transform: scale(1.05);
+                            background-color: $color-primary-900;
+                        }
+    
+                        &[data-active='true'] {
+                            background-color: $color-primary-600;
+    
+                            &:hover { background-color: $color-primary-500; }
+                        }
+                    }
+                }
+            }
+
+            i {
+                cursor: pointer;
+                transition: $transition;
+
+                &:first-child:hover { translate: toRem(-1.5) 0; }
+                &:last-child:hover { translate: toRem(1.5) 0; }
+            }
+        }
+
+        span {
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: none;
+        }
+    }
+}

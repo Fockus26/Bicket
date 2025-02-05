@@ -1,0 +1,243 @@
+#Dashboard {
+  flex-direction: column;
+  gap: 1.5rem;
+}
+#Dashboard table {
+  display: grid;
+  width: 100%;
+}
+#Dashboard table thead {
+  background-color: hsl(180, 100%, 12%);
+}
+#Dashboard table thead tr {
+  grid-template-columns: auto 1fr 1fr 1fr auto;
+  align-items: center;
+  border-color: rgba(255, 255, 255, 0.8);
+}
+#Dashboard table thead tr:hover {
+  border-color: rgb(255, 255, 255);
+}
+#Dashboard table thead tr i {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+#Dashboard table thead tr i:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+#Dashboard table thead tr i.fa-trash-can {
+  color: white;
+}
+#Dashboard table thead tr i.fa-trash-can:hover {
+  color: hsl(338, 95%, 85%);
+}
+#Dashboard table thead tr th {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  gap: 1.25rem;
+}
+#Dashboard table thead tr th:hover input, #Dashboard table thead tr th:hover input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+#Dashboard table thead tr th input {
+  color: rgb(255, 255, 255);
+  border-bottom: 0.0625rem solid transparent;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+#Dashboard table thead tr th input:focus, #Dashboard table thead tr th input:not(:placeholder-shown) {
+  border-color: hsl(180, 100%, 50%);
+}
+#Dashboard table thead tr th input::placeholder {
+  color: rgb(255, 255, 255);
+  transition: 0.5s ease;
+  font-weight: 700;
+}
+#Dashboard table thead tr th .sort {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+  min-width: 0.625rem;
+}
+#Dashboard table thead tr th .sort i {
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 0;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+#Dashboard table thead tr th .sort i:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+#Dashboard table thead tr th .sort i .active {
+  color: rgb(255, 255, 255);
+}
+#Dashboard table tbody {
+  background-color: hsl(180, 100%, 9%);
+}
+#Dashboard table tbody:hover .details {
+  height: auto;
+  padding-bottom: 0.625rem;
+  opacity: 1;
+}
+#Dashboard table tbody tr {
+  border-bottom: 0.0625rem solid hsl(180, 100%, 7%) !important;
+}
+#Dashboard table tbody tr:hover {
+  background-color: hsl(180, 100%, 6%);
+}
+#Dashboard table tfoot {
+  background-color: hsl(180, 100%, 7%);
+}
+#Dashboard table tfoot:hover .details {
+  height: auto;
+  padding-bottom: 0.625rem;
+  opacity: 1;
+}
+#Dashboard table tfoot tr:hover {
+  background-color: hsl(180, 100%, 6%);
+}
+#Dashboard table tr {
+  padding: 0 1.25rem;
+  border-left: 0.1875rem solid transparent;
+  transition: 0.5s ease;
+  display: grid;
+}
+#Dashboard table tr .data {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  align-items: center;
+}
+#Dashboard table tr .data i {
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+#Dashboard table tr .data td {
+  padding: 1.25rem;
+  min-height: 4.0625rem;
+  transition: 0.5s ease;
+  display: flex;
+  align-items: center;
+}
+#Dashboard table tr .data td:last-child {
+  display: flex;
+  justify-content: space-between;
+}
+#Dashboard table tr .data td a {
+  transition: 0.5s ease;
+}
+#Dashboard table tr .data td p {
+  font-weight: 600;
+  margin-bottom: 0;
+  width: fit-content;
+  line-height: auto;
+}
+#Dashboard table tr .details {
+  width: 100%;
+  padding: 0 1.25rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.25s ease, padding-bottom 0.5s ease, opacity 1s ease;
+  opacity: 0;
+}
+#Dashboard table tr .details span {
+  text-transform: none;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+#Dashboard table tr .details i {
+  line-height: 0;
+  opacity: 0.6;
+}
+#Dashboard table tr .details div {
+  display: flex;
+  justify-content: space-evenly;
+}
+#Dashboard table tr .details div .status .success {
+  color: #006e50;
+}
+#Dashboard table tr .details div .status .error {
+  color: #b00038;
+}
+#Dashboard table tr .details div .status .warning {
+  color: #ffc964;
+}
+#Dashboard table tr .details div .status .process {
+  color: hsl(0, 0%, 40%);
+}
+#Dashboard table .loading-data {
+  color: transparent !important;
+  background-color: hsl(180, 100%, 20%);
+  border-radius: 0.25rem;
+  animation: pulse 1.5s infinite;
+  height: fit-content;
+}
+@keyframes pulse {
+  0% {
+    background-color: hsl(180, 100%, 20%);
+  }
+  50% {
+    background-color: hsl(180, 100%, 27.5%);
+  }
+  100% {
+    background-color: hsl(180, 100%, 20%);
+  }
+}
+#Dashboard .pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+#Dashboard .pagination nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+}
+#Dashboard .pagination nav ul {
+  display: flex;
+  gap: 0.5rem;
+}
+#Dashboard .pagination nav ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 0.375rem;
+  transition: 0.5s ease;
+}
+#Dashboard .pagination nav ul li[data-valid=true] {
+  cursor: pointer;
+}
+#Dashboard .pagination nav ul li[data-valid=true]:hover {
+  transform: scale(1.05);
+  background-color: #003333;
+}
+#Dashboard .pagination nav ul li[data-valid=true][data-active=true] {
+  background-color: #006666;
+}
+#Dashboard .pagination nav ul li[data-valid=true][data-active=true]:hover {
+  background-color: #007777;
+}
+#Dashboard .pagination nav i {
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+#Dashboard .pagination nav i:first-child:hover {
+  translate: -0.09375rem 0;
+}
+#Dashboard .pagination nav i:last-child:hover {
+  translate: 0.09375rem 0;
+}
+#Dashboard .pagination span {
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: none;
+}
