@@ -6,7 +6,7 @@ function SignUp(props) {
 
   const [ showComponent, setShowComponent ] = useState({
     main: false,
-    specific: true,
+    specific: false,
     temporalMessage: false,
   })
 
@@ -15,7 +15,7 @@ function SignUp(props) {
   const [ counterClass, setCounterClass ] = useState('')
 
   return (
-    <main id='Authentication' className={counterClass + ' step' + (step)}>
+    <main id='Authentication' className={`counterClass signUp verifiedData${step}`}>
       { showComponent.temporalMessage ? (
           <span className='container'>Almost There</span> 
         ) : showComponent.main || showComponent.specific ? (

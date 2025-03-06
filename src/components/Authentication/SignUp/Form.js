@@ -25,8 +25,9 @@ function Form(props) {
     useEffect(() => {        
         const amountVerified = Object.keys(data)
                                 .flatMap(key => Object.values(data[key])
-                                .filter(item => item.verified)).length
-        setStep(amountVerified)
+                                .filter(item => item.isVerified)).length
+        
+        setStep(amountVerified)       
         
     }, [data, setStep]);
 

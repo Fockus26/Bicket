@@ -13,8 +13,8 @@ function SignIn(props) {
   };
 
   return (
-    <main id='Authentication'>
-      <form action="" className='container signIn' onSubmit={submitSignIn}>
+    <main id='Authentication' className='signIn'>
+      <form action="" className='container' onSubmit={submitSignIn}>
 
         <h1>Sign In</h1>
 

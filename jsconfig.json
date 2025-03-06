@@ -4,7 +4,8 @@
     "target": "es6",
     "paths": {
       "css": ["css"],
-      "assets": ["assets"]
+      "assets": ["assets"],
+      "utils": ["utils"]
     }
   },
   "include": ["src"],

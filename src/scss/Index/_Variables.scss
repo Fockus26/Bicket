@@ -37,9 +37,14 @@ $color-gray-200: #e5e5ea;
 $color-gray-100: #f2f2f7;
 
 $color-status-error: #b00038;
+$color-status-error-hover: #c40040;  
 $color-status-warning: #ffc964;
+$color-status-warning-hover: #ffd98a;
 $color-status-success: #006e50;
+$color-status-success-hover: #008b64;
 $color-status-info: #23c197;
+$color-status-info-hover: #3ddcad;   
+
 
 $gap-tiny-mobile: toRem(4);
 $gap-x-small-mobile: toRem(8);

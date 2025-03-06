@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import useColorPage from '../../../../utils/useColorPage'
+import useColorPage from 'utils/useColorPage'
 
 function Content(props) {
   const { dataPagesArticles, activePage, activeFeature, showFeature, isLaptop } = props
@@ -26,7 +26,7 @@ function Content(props) {
   }
 
   const RenderPage = page => 
-      <article style={useColorPage(activePage)}>
+      <article style={useColorPage(activePage, true)}>
         {isLaptop && renderMedia(page[prevFeature].media)}
   
         <div>

@@ -2,30 +2,33 @@ import React, { useState } from 'react';
 
 function Header(props) {
     const { 
-        sort, setSort, dataHeader, searchFilters, 
-        setSearchFilters, isRowsSelected, setIsRowsSelected, 
-        dataDashboard, setDataDashboard, deletedRows
+        sort, setSort, dataHeader, dataDashboard, searchFilters, setSearchFilters, 
+        isAllRowsSelected, setSelectedRows, actualData,
+        isAllActualRowsSelected, setIsAllActualRowsSelected,
+        deleteRows
     } = props;
 
     const [ hoveredHeader, setHoveredHeader ] = useState('');
 
     const handleSearch = (key, value) => setSearchFilters(prev => ({ ...prev, [key]: value }));
 
-    const deleteAllRows = () => 
-        setDataDashboard(dataDashboard
-            .filter(value => !Object.keys(deletedRows)
-            .filter(key => deletedRows[key] === true)
-            .map(Number).includes(value.id)))
+    const toggleSelectAllActualRows = () => {
+        const idActualRows = actualData.map(data => data.id)
+        setSelectedRows(prev => prev.map(data => 
+            idActualRows.includes(data.id) ?  ({...data, isSelected: !isAllActualRowsSelected}) : data)
+        )
+        setIsAllActualRowsSelected(!isAllActualRowsSelected)
+    }
 
     return (
         <thead>
             <tr>
                 <i 
                     className={
-                        'fa-square' + (isRowsSelected ? '-check' : '') +
-                        ' fa-' + (isRowsSelected ? 'solid' : 'regular')
+                        'fa-square' + (isAllActualRowsSelected || isAllRowsSelected ? '-check' : '') +
+                        ' fa-' + (isAllActualRowsSelected || isAllRowsSelected ? 'solid' : 'regular')
                     } 
-                    onClick={() => setIsRowsSelected(!isRowsSelected)}
+                    onClick={toggleSelectAllActualRows}
                 />
 
                 { dataHeader.map((value, index) => 
@@ -57,9 +60,16 @@ function Header(props) {
                     </th>
                 )}
 
+                <span 
+                    onClick={() => deleteRows(true)}
+                    className={(isAllActualRowsSelected && !isAllRowsSelected) ? '' : 'hide'}    
+                >
+                    Eliminar {dataDashboard.length} eventos
+                </span>
+
                 <i 
-                    className={'fa-solid fa-trash-can ' + (isRowsSelected ? '' : 'hide')} 
-                    onClick={deleteAllRows} 
+                    className={'fa-solid fa-trash-can ' + (isAllActualRowsSelected || isAllRowsSelected ? '' : 'hide')} 
+                    onClick={() => deleteRows(false)} 
                 />
             </tr>
         </thead>

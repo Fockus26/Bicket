@@ -209,13 +209,10 @@ fieldset {
   inherits: false;
 }
 #footer {
-  background: linear-gradient(to bottom, var(--backgroundColor1), var(--backgroundColor2));
-  box-shadow: 0 0 6.25rem 0 #002222;
+  background: linear-gradient(to top, var(--backgroundColor1), var(--backgroundColor2));
+  box-shadow: 0 0 6.25rem 0 #001111;
   padding: 1.5rem 5%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
   gap: 0.75rem;
   transition: --backgroundColor1 0.5s ease, --backgroundColor2 0.5s ease, box-shadow 0.5s ease;
   /* Links */
@@ -227,10 +224,11 @@ fieldset {
 #footer:hover {
   --backgroundColor1: #002222;
   --backgroundColor2: #001111;
-  box-shadow: 0 0 6.25rem 0 #001111;
+  box-shadow: 0 0 1.5625rem 0 #001111;
 }
 #footer ul {
   display: flex;
+  justify-content: center;
 }
 #footer ul li {
   margin: 0.5rem 0;
@@ -247,6 +245,7 @@ fieldset {
   color: #ffffff;
 }
 #footer span {
+  text-align: center;
   padding: 0.5rem 1rem;
   color: #bddede;
   transition: 0.5s ease;
@@ -271,7 +270,7 @@ fieldset {
   #footer {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    flex-direction: row;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 0;
   }
   #footer ul {

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './Home';
 import Authentication from './Authentication';
-import ControlPanel from './ControlPanel/ControlPanel';
+import ControlPanel from './ControlPanel';
 import Error404 from './General/Error404';
 
 function App() {
-  const [ isLogin, setIsLogin ] = useState(false);
+  const [ isLogin, setIsLogin ] = useState(true);
 
   return (
     <Router>

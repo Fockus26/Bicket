@@ -1,275 +1,277 @@
 @use '../Index/Variables' as *;
 @use '../Index/Functions' as *;
 
-#Authentication .signIn {
-    flex-direction: column;
-    gap: $gap-large-mobile;
-    position: relative; 
-    max-width: toRem(400); 
-	border-radius: toRem(5); 
-    border: toRem(2) solid $color-primary-300;
-	box-shadow: inset 0 0 toRem(8) $color-primary-300; 
-    padding: toRem(64) 0; 
-    overflow: hidden;
-    transition: $transition;
+#Authentication.signIn {
+    form {
+        flex-direction: column;
+        gap: $gap-large-mobile;
+        position: relative; 
+        max-width: toRem(400); 
+        border-radius: toRem(5); 
+        border: toRem(2) solid $color-primary-300;
+        box-shadow: inset 0 0 toRem(8) $color-primary-300; 
+        padding: toRem(64) 0; 
+        overflow: hidden;
+        transition: $transition;
 
-    /* Tablet */
-    @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
-        & { gap: $gap-large-tablet; }
-    }
-    /* Laptop */
-    @media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
-        & { gap: $gap-large-laptop; }
-    }
-    /* Desktop */
-    @media only screen and (min-width: 80rem) {
-        & { gap: $gap-large-desktop; }
-    }
-
-    &:hover, &:focus-within { 
-        border-color: $color-primary-emphasis-text;
-        box-shadow: inset 0 0 toRem(40) $color-primary-emphasis-text, 0 0 toRem(40) $color-primary-900; 
-
-        &:before {
-            background-size: 200% toRem(4), toRem(4) 400%, toRem(4) 400%, 55% toRem(4), 55% toRem(4); 
-            background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
-            transform: scaleX(1) rotate(180deg);
-            transition-delay: 0s, 0.2s, 0.4s;
+        /* Tablet */
+        @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
+            & { gap: $gap-large-tablet; }
+        }
+        /* Laptop */
+        @media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
+            & { gap: $gap-large-laptop; }
+        }
+        /* Desktop */
+        @media only screen and (min-width: 80rem) {
+            & { gap: $gap-large-desktop; }
         }
 
-        h1 { color: $color-primary-emphasis-text; }
+        &:hover, &:focus-within { 
+            border-color: $color-primary-emphasis-text;
+            box-shadow: inset 0 0 toRem(40) $color-primary-emphasis-text, 0 0 toRem(40) $color-primary-900; 
 
-        fieldset {
-            div {
-                label { color: $color-primary-emphasis-text; }
+            &:before {
+                background-size: 200% toRem(4), toRem(4) 400%, toRem(4) 400%, 55% toRem(4), 55% toRem(4); 
+                background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+                transform: scaleX(1) rotate(180deg);
+                transition-delay: 0s, 0.2s, 0.4s;
+            }
 
-                input {
-                    color: $color-primary-emphasis-text;
+            h1 { color: $color-primary-emphasis-text; }
 
-                    &#Email { 
-                        border-color: $color-primary-300;
-                        &:focus { border-color: $color-primary-emphasis-text; }
-                    }
-                    &#Remember {
-                        background-color: $color-primary-emphasis-text;
-                        border-color: $color-primary-emphasis-text;
+            fieldset {
+                div {
+                    label { color: $color-primary-emphasis-text; }
 
-                        &:active, &:focus, &:checked {
-                            background-color: $color-primary-emphasis-text;
-                            border: toRem(2) solid $color-primary-emphasis-text; 
+                    input {
+                        color: $color-primary-emphasis-text;
+
+                        &#Email { 
+                            border-color: $color-primary-300;
+                            &:focus { border-color: $color-primary-emphasis-text; }
                         }
+                        &#Remember {
+                            background-color: $color-primary-emphasis-text;
+                            border-color: $color-primary-emphasis-text;
 
-                        &:checked:before { color: $color-primary-1100; }
+                            &:active, &:focus, &:checked {
+                                background-color: $color-primary-emphasis-text;
+                                border: toRem(2) solid $color-primary-emphasis-text; 
+                            }
+
+                            &:checked:before { color: $color-primary-1100; }
+                        }
+                    }
+
+                    .containerPassword {
+                        border-color: $color-primary-300;
+                        &:focus-within { border-color: $color-primary-emphasis-text; }
+                        i { color: $color-primary-emphasis-text; }
                     }
                 }
 
-                .containerPassword {
+                button {
+                    color: $color-primary-emphasis-text;       
                     border-color: $color-primary-300;
-                    &:focus-within { border-color: $color-primary-emphasis-text; }
-                    i { color: $color-primary-emphasis-text; }
+
+                    &:hover { 
+                        color: $color-primary-700;
+                        background-color: $color-primary-emphasis-text; 
+                    }
+                }
+            }
+        }
+        
+        
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(to right, $color-primary-emphasis-text 0%, $color-primary-emphasis-text 100%), 
+                linear-gradient(to top, $color-primary-emphasis-text 50%, transparent 50%), 
+                linear-gradient(to top, $color-primary-emphasis-text 50%, transparent 50%), 
+                linear-gradient(to right, $color-primary-emphasis-text 0%, $color-primary-emphasis-text 100%), 
+                linear-gradient(to left, $color-primary-emphasis-text 0%, $color-primary-emphasis-text 100%);
+            background-size: 100% toRem(4), toRem(4) 200%, toRem(4) 200%, 0% toRem(4), 0% toRem(4); 
+            background-position: 50% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
+            background-repeat: no-repeat;
+            transition: transform 0.2s ease-in-out, background-position 0.2s ease-in-out, background-size 0.2s ease-in-out;
+            transform: scaleX(0) rotate(180deg);
+            transition-delay: 0.4s, 0.2s, 0s;
+            z-index: -10;
+        }
+
+        h1 { 
+            color: $color-primary-300; 
+            transition: $transition;
+        }
+
+        fieldset {
+            display: grid;
+            gap: $gap-base-mobile;
+            width: 70%;
+
+            div {
+                display: grid;
+                align-items: center;
+                gap: $gap-tiny-mobile;
+
+                &.containerRemember {
+                    grid-template-columns: auto 1fr;
+
+                    #Remember {
+                        appearance: none; 
+                        width: toRem(16); 
+                        height: toRem(16); 
+                        border-radius: toRem(5); 
+                        border: toRem(2) solid $color-primary-300; 
+                        background-color: $color-primary-300;
+                        cursor: pointer;
+                        transition: $transition;
+
+                        &:active, &:focus, &:checked {
+                            background-color: $color-primary-300; 
+                            border: toRem(2) solid $color-primary-300; 
+                        }
+
+                        &:checked::before {
+                            content: '✓';
+                            display: block;
+                            font-size: toRem(14); 
+                            text-align: center;
+                            color: $color-primary-800;
+                            transition: $transition;
+                        }
+                        
+                        /* Tablet and above */
+                        @media only screen and (min-width: 47.938rem) {
+                        & {
+                            width: toRem(20); 
+                            height: toRem(20); 
+                        }
+
+                        &:checked::before { font-size: toRem(16); } 
+                        }
+                    }
+                }
+
+                label, input { 
+                    color: $color-primary-300; 
+                    transition: $transition;
+                }
+
+                label { 
+                    cursor: pointer; 
+                    width: fit-content;
+                }
+
+                input { 
+                    padding-bottom: $gap-tiny-mobile; 
+                
+                    &#Email { 
+                        border-bottom: toRem(3) solid $color-primary-300; 
+
+                        /* Tablet and above */
+                        @media only screen and (min-width: 47.938rem) {
+                            & { border-color: transparent; } 
+                        }
+                    } 
+
+                }
+
+                .containerPassword {
+                    display: flex;
+                    gap: $gap-small-mobile;
+                    border-bottom: toRem(3) solid $color-primary-300; 
+                    transition: $transition;
+
+                    i {
+                        margin-right: $gap-tiny-mobile;
+                        margin-bottom: $gap-tiny-mobile;
+                        cursor: pointer;
+                        color: $color-primary-300;
+                        transition: $transition;
+                    }
+
+                    /* Tablet and above */
+                    @media only screen and (min-width: 47.938rem) {
+                        & { 
+                            border-color: transparent; 
+                            i { color: transparent; }
+                        }
+                    }
+                }
+
+                /* Tablet */
+                @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
+                    & { 
+                        gap: $gap-tiny-tablet; 
+
+                        input { padding-bottom: $gap-tiny-tablet; }
+
+                        .containerPassword {
+                            gap: $gap-small-tablet;
+
+                            i { 
+                                margin-right: $gap-tiny-tablet; 
+                                margin-bottom: $gap-tiny-tablet;
+                            }
+                        }
+                    }
+                }
+                /* Laptop */
+                @media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
+                    & { 
+                        gap: $gap-tiny-laptop; 
+
+                        input { padding-bottom: $gap-tiny-tablet; }
+
+                        .containerPassword {
+                            gap: $gap-small-laptop;
+
+                            i { 
+                                margin-right: $gap-tiny-laptop; 
+                                margin-bottom: $gap-tiny-laptop;
+                            }
+                        }
+                    }
+                }
+                /* Desktop */
+                @media only screen and (min-width: 80rem) {
+                    & { 
+                        gap: $gap-tiny-desktop; 
+
+                        input { padding-bottom: $gap-tiny-tablet; }
+                        
+                        .containerPassword {
+                            gap: $gap-small-desktop;
+
+                            i { 
+                                margin-right: $gap-tiny-desktop; 
+                                margin-bottom: $gap-tiny-desktop;
+                            }
+                        }
+                    }
                 }
             }
 
             button {
-                color: $color-primary-emphasis-text;       
-                border-color: $color-primary-300;
-
-                &:hover { 
-                    color: $color-primary-700;
-                    background-color: $color-primary-emphasis-text; 
-                }
-            }
-        }
-    }
-    
-    
-    &:before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: 
-            linear-gradient(to right, $color-primary-emphasis-text 0%, $color-primary-emphasis-text 100%), 
-            linear-gradient(to top, $color-primary-emphasis-text 50%, transparent 50%), 
-            linear-gradient(to top, $color-primary-emphasis-text 50%, transparent 50%), 
-            linear-gradient(to right, $color-primary-emphasis-text 0%, $color-primary-emphasis-text 100%), 
-            linear-gradient(to left, $color-primary-emphasis-text 0%, $color-primary-emphasis-text 100%);
-        background-size: 100% toRem(4), toRem(4) 200%, toRem(4) 200%, 0% toRem(4), 0% toRem(4); 
-        background-position: 50% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
-        background-repeat: no-repeat;
-        transition: transform 0.2s ease-in-out, background-position 0.2s ease-in-out, background-size 0.2s ease-in-out;
-        transform: scaleX(0) rotate(180deg);
-        transition-delay: 0.4s, 0.2s, 0s;
-        z-index: -10;
-    }
-
-    h1 { 
-        color: $color-primary-300; 
-        transition: $transition;
-    }
-
-    fieldset {
-        display: grid;
-        gap: $gap-base-mobile;
-        width: 70%;
-
-        div {
-            display: grid;
-            align-items: center;
-            gap: $gap-tiny-mobile;
-
-            &.containerRemember {
-                grid-template-columns: auto 1fr;
-
-                #Remember {
-                    appearance: none; 
-                    width: toRem(16); 
-                    height: toRem(16); 
-                    border-radius: toRem(5); 
-                    border: toRem(2) solid $color-primary-300; 
-                    background-color: $color-primary-300;
-                    cursor: pointer;
-                    transition: $transition;
-
-                    &:active, &:focus, &:checked {
-                        background-color: $color-primary-300; 
-                        border: toRem(2) solid $color-primary-300; 
-                    }
-
-                    &:checked::before {
-                        content: '✓';
-                        display: block;
-                        font-size: toRem(14); 
-                        text-align: center;
-                        color: $color-primary-800;
-                        transition: $transition;
-                    }
-                    
-                    /* Tablet and above */
-                    @media only screen and (min-width: 47.938rem) {
-                      & {
-                        width: toRem(20); 
-                        height: toRem(20); 
-                      }
-
-                      &:checked::before { font-size: toRem(16); } 
-                    }
-                }
-            }
-
-            label, input { 
-                color: $color-primary-300; 
-                transition: $transition;
-            }
-
-            label { 
-                cursor: pointer; 
-                width: fit-content;
-            }
-
-            input { 
-                padding-bottom: $gap-tiny-mobile; 
-            
-                &#Email { 
-                    border-bottom: toRem(3) solid $color-primary-300; 
-
-                    /* Tablet and above */
-                    @media only screen and (min-width: 47.938rem) {
-                        & { border-color: transparent; } 
-                    }
-                } 
-
-            }
-
-            .containerPassword {
                 display: flex;
-                gap: $gap-small-mobile;
-                border-bottom: toRem(3) solid $color-primary-300; 
+                width: 100%;
+                justify-content: center;
+                color: $color-primary-300;
+                border: toRem(2) solid $color-primary-300; 
+                border-radius: toRem(5); 
                 transition: $transition;
-
-                i {
-                    margin-right: $gap-tiny-mobile;
-                    margin-bottom: $gap-tiny-mobile;
-                    cursor: pointer;
-                    color: $color-primary-300;
-                    transition: $transition;
-                }
+                padding: toRem(7) 0; 
 
                 /* Tablet and above */
                 @media only screen and (min-width: 47.938rem) {
-                    & { 
-                        border-color: transparent; 
-                        i { color: transparent; }
-                    }
+                & { border-color: transparent; }
                 }
-            }
-
-            /* Tablet */
-            @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
-                & { 
-                    gap: $gap-tiny-tablet; 
-
-                    input { padding-bottom: $gap-tiny-tablet; }
-
-                    .containerPassword {
-                        gap: $gap-small-tablet;
-
-                        i { 
-                            margin-right: $gap-tiny-tablet; 
-                            margin-bottom: $gap-tiny-tablet;
-                        }
-                    }
-                }
-            }
-            /* Laptop */
-            @media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
-                & { 
-                    gap: $gap-tiny-laptop; 
-
-                    input { padding-bottom: $gap-tiny-tablet; }
-
-                    .containerPassword {
-                        gap: $gap-small-laptop;
-
-                        i { 
-                            margin-right: $gap-tiny-laptop; 
-                            margin-bottom: $gap-tiny-laptop;
-                        }
-                    }
-                }
-            }
-            /* Desktop */
-            @media only screen and (min-width: 80rem) {
-                & { 
-                    gap: $gap-tiny-desktop; 
-
-                    input { padding-bottom: $gap-tiny-tablet; }
-                    
-                    .containerPassword {
-                        gap: $gap-small-desktop;
-
-                        i { 
-                            margin-right: $gap-tiny-desktop; 
-                            margin-bottom: $gap-tiny-desktop;
-                        }
-                    }
-                }
-            }
-        }
-
-        button {
-            display: flex;
-            width: 100%;
-            justify-content: center;
-            color: $color-primary-300;
-            border: toRem(2) solid $color-primary-300; 
-            border-radius: toRem(5); 
-            transition: $transition;
-            padding: toRem(7) 0; 
-
-            /* Tablet and above */
-            @media only screen and (min-width: 47.938rem) {
-              & { border-color: transparent; }
             }
         }
     }

@@ -4,11 +4,11 @@ function Nav(props) {
   const { showPage, dataPagesNavBar, isMobile } = props
     
   const [indexActivePage, setIndexActivePage] = useState(0)
-  const [currentPage, setCurrentPage] = useState(Object.keys(dataPagesNavBar)[indexActivePage]);
+  const [currentItem, setcurrentItem] = useState(Object.keys(dataPagesNavBar)[indexActivePage]);
 
   const showSlide = newIndex => {
     setIndexActivePage(newIndex)
-    setCurrentPage(Object.keys(dataPagesNavBar)[newIndex])
+    setcurrentItem(Object.keys(dataPagesNavBar)[newIndex])
     showPage(Object.keys(dataPagesNavBar)[newIndex])
   }
   
@@ -29,7 +29,7 @@ function Nav(props) {
         {Object.entries(dataPagesNavBar).map(([keyPage, valuePage], indexPage) => (
           <li 
             key={indexPage}
-            className={`${ keyPage === currentPage ? 'active' : ''}`}
+            className={`${ keyPage === currentItem ? 'active' : ''}`}
             onClick={() => showSlide(indexPage)}
           >
             <img src={valuePage.imgSrc} alt={valuePage.imgAlt} />

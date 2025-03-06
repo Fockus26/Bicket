@@ -18,14 +18,14 @@ const parseHSL = hsl => {
 
 const LIGHTNESS_PERCENTAGES = [23, 35, 40, 45, 50, 60, 70, 80];
 
-const useColorPage = page => {
-  const baseColor = colorPages[page]
+const useColorPage = (page, isMultipleColors) => {
+  const baseColor = colorPages[page]  
   
   const styles = useMemo(() => {
     let parsed;
     try {
-      parsed = parseHSL(baseColor);
-    } catch (error) {
+      parsed = parseHSL(baseColor);      
+    } catch (error) {            
       console.error(error);
       return {};
     }
@@ -42,7 +42,8 @@ const useColorPage = page => {
     return colorVariables;
   }, [baseColor]);
 
-  return styles;
-};
+  if (isMultipleColors) return styles;
+  else return baseColor;
+}
 
 export default useColorPage;

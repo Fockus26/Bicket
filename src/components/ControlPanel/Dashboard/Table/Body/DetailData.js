@@ -24,14 +24,13 @@ function DetailData(props) {
               {tickets} {tickets > 1 ? 'tickets' : 'ticket'}
             </span>
 
-            <span className="status">
+            <span>
               <i 
                 className={
-                  'fa-solid ' +
-                  ( status === 'warning' ? 'fa-triangle-exclamation' : 
-                    'fa-circle-' + (status === 'success' ? 'check' : status === 'error' ? 'xmark' : 'info')
-                  )
+                  `fa-solid fa-${status === 'warning' ? 'triangle-exclamation' : 
+                  'circle-' + (status === 'success' ? 'check' : status === 'error' ? 'xmark' : 'info')}`
                 } 
+                style={colorPage}
               />
               {status}
             </span>
