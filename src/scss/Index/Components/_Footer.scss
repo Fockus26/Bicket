@@ -35,13 +35,12 @@
         li { margin: $gap-x-small-mobile 0; }
         a {
             padding: $gap-x-small-mobile $gap-medium-mobile;  
-            color: $color-primary-emphasis-medium;
             transition: $transition;
 
             &:hover {
-                color: $color-white;
+                color: $color-primary-emphasis-text;
 
-                i { color: $color-white; }
+                i { color: $color-primary-emphasis-text; }
             }
         }
     }
@@ -50,10 +49,6 @@
     span { 
         text-align: center;
         padding: $gap-x-small-mobile $gap-medium-mobile;  
-        color: $color-primary-emphasis-medium;
-        transition: $transition;
-        
-        &:hover { color: $color-white; }
     }
 
     /* Tablet */

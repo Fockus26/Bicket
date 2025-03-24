@@ -21,6 +21,16 @@ body {
   color: #f2f2f7;
 }
 
+body::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: #1c1c1e;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 1.25rem;
+  background-color: #009999;
+}
+
 h1, h2, h3, span, a, button {
   text-transform: uppercase;
 }
@@ -59,6 +69,10 @@ span {
 
 a, button {
   font-weight: 700;
+}
+
+button {
+  color: #ffffff;
 }
 
 @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
@@ -126,25 +140,65 @@ input, button, textarea, select {
   width: 100%;
 }
 
+textarea {
+  resize: none;
+  overflow: hidden;
+}
+
 /* clears the ‘X’ from Internet Explorer */
-input[type=search]::-ms-clear {
+input {
+  appearance: none;
+}
+input [type=search] {
+  /* clears the ‘X’ from Chrome */
+}
+input [type=search]::-ms-clear, input [type=search]::-ms-reveal {
   display: none;
   width: 0;
   height: 0;
 }
-
-input[type=search]::-ms-reveal {
+input [type=search]::-webkit-search-decoration, input [type=search]::-webkit-search-cancel-button, input [type=search]::-webkit-search-results-button, input [type=search]::-webkit-search-results-decoration {
   display: none;
-  width: 0;
-  height: 0;
 }
-
-/* clears the ‘X’ from Chrome */
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
+input[type=number] {
+  /* Para Chrome, Safari, Edge y Opera */
+  /* Para Firefox */
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input[type=number][type=number] {
+  -moz-appearance: textfield;
+}
+input[type=checkbox] {
+  cursor: pointer;
+}
+input[type=date], input[type=time] {
+  position: relative;
+  -webkit-appearance: none;
+}
+input[type=date]::-webkit-calendar-picker-indicator, input[type=time]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  background: 0 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: auto;
+}
+input[type=date]::-webkit-date-and-time-value {
+  margin: 0;
+}
+input[type=date]::-webkit-inner-spin-button, input[type=date]::-webkit-outer-spin-button, input[type=date]::-webkit-clear-button {
+  -webkit-appearance: none;
   display: none;
+}
+input[type=date]::-webkit-datetime-edit-month-field, input[type=date]::-webkit-datetime-edit-day-field, input[type=date]::-webkit-datetime-edit-year-field, input[type=date]::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
 }
 
 img, video {
@@ -235,23 +289,17 @@ fieldset {
 }
 #footer ul a {
   padding: 0.5rem 1rem;
-  color: #bddede;
   transition: 0.5s ease;
 }
 #footer ul a:hover {
-  color: #ffffff;
+  color: #aaffff;
 }
 #footer ul a:hover i {
-  color: #ffffff;
+  color: #aaffff;
 }
 #footer span {
   text-align: center;
   padding: 0.5rem 1rem;
-  color: #bddede;
-  transition: 0.5s ease;
-}
-#footer span:hover {
-  color: #ffffff;
 }
 @media only screen and (min-width: 47.938rem) {
   #footer {

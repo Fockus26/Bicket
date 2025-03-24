@@ -49,8 +49,12 @@ function Body(props) {
     // Cada vez que cambie la pagina verifica si todas las filas estan seleccionadas
     useEffect(() => {
       const actualSelectedRows = selectedRows.filter(item => idActualRows.includes(item.id))
-      const isAllActualRowsSelected = actualSelectedRows.every(item => item.isSelected)
-      setIsAllActualRowsSelected(isAllActualRowsSelected)
+      
+      if (actualSelectedRows.length) {
+        const isAllActualRowsSelected = actualSelectedRows.every(item => item.isSelected)
+        setIsAllActualRowsSelected(isAllActualRowsSelected)
+      }
+      
     }, [idActualRows, selectedRows, setIsAllActualRowsSelected])
 
   return (
@@ -58,6 +62,7 @@ function Body(props) {
       <tbody>
         { dataBody.map(row => 
           <Content 
+            key={row.id}
             row={row}
             dataHeader={dataHeader}
             selectedRows={selectedRows}
@@ -70,6 +75,7 @@ function Body(props) {
       { dataFooter && 
         <tfoot>
           <Content 
+            key={dataFooter.id}
             row={dataFooter}
             dataHeader={dataHeader}
             selectedRows={selectedRows}

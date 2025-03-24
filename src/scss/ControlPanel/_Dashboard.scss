@@ -1,0 +1,398 @@
+@use '../Index/Variables' as *;
+@use '../Index/Functions' as *;
+
+#Dashboard {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: $gap-large-laptop;
+
+    h1 { transition: $transition; }
+
+    &:has(section[data-active='false']) h1 {
+        color: $color-primary-emphasis-disabled;
+    }
+
+    section[data-active='false'] + h1 {
+        color: $color-primary-900;
+    }
+
+    section {
+        display: grid;
+        gap: $gap-large-mobile;
+        width: 100%;
+
+        /* Large Height */
+        @media only screen and (min-height: 50rem) {
+          & { height: 100vh; }
+        }
+
+        &[data-active='false'] {
+            cursor: pointer;
+            width: 66%;
+            justify-content: center;
+            align-items: center;
+            max-width: toRem(600);
+            min-height: toRem(300);
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2361b0b0FF' stroke-width='4' stroke-dasharray='28%2c 14' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+            border-radius: toRem(5);
+            padding: $gap-large-laptop $gap-x-large-laptop;
+            transition: $transition;
+
+            &:hover {
+                background-color: $color-primary-900;
+
+                div {
+                    gap: $gap-small-mobile;
+
+                    i { font-size: toRem(48); }
+                }
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: toRem(32);
+                color: $color-primary-emphasis-disabled;
+
+                i {
+                    font-size: toRem(48); 
+                    transition: $transition;
+
+                    /* Tablet and above */
+                    @media only screen and (min-width: 47.938rem) {
+                        & {  font-size: toRem(64); }
+                    }                
+                }
+
+                span { 
+                    font-size: toRem(24);
+                    text-align: center;
+                    font-weight: $font-weight-bold;
+                    transition: $transition; 
+
+                    /* Tablet and above */
+                    @media only screen and (min-width: 47.938rem) {
+                      & { font-size: toRem(28); }
+                    }
+                }
+            }
+        }
+
+        table {
+            display: grid;
+            height: fit-content;
+
+            thead {
+                background-color: hsl(180, 100%, 12%);
+    
+                tr {
+                    border-color: rgba(255, 255, 255, 0.8);
+    
+                    &:hover { border-color: rgba(255, 255, 255, 1); }
+
+                    th {
+                        display: grid;
+                        grid-template-columns: auto 1fr 1fr 1fr;
+                        align-items: center;
+
+                        & > i { cursor: pointer; }
+
+                        .filter {
+                            display: flex;
+                            align-items: center;
+                            padding: toRem(20) 0 toRem(20) toRem(5);
+                            gap: toRem(20);
+                            width: fit-content;
+    
+                            /* Tablet and above */
+                            @media only screen and (min-width: 47.938rem) {
+                                & { padding: toRem(20) }
+                            }
+        
+                            &:hover {
+                                input, input::placeholder { color: rgba(255, 255, 255, 0.8); }
+                            } 
+        
+                            input {
+                                color: rgba(255, 255, 255, 1);
+                                border-bottom: toRem(1) solid transparent;
+                                text-transform: uppercase;
+                                transition: $transition;
+        
+                                &:focus, &:not(:placeholder-shown) { border-color: hsl(180, 100%, 50%); }
+        
+                                &::placeholder {
+                                    color: rgba(255, 255, 255, 1);
+                                    transition: $transition;
+                                    font-weight: $font-weight-bold;
+                                }
+                            }
+        
+                            .sort {
+                                display: flex;
+                                flex-direction: column;
+                                gap: toRem(5);
+                                min-width: toRem(10);
+        
+                                i {
+                                    color: rgba(255, 255, 255, 0.5);
+                                    transition: $transition;
+                                    cursor: pointer;
+                                    line-height: 0;
+        
+                                    &:hover { color: rgba(255, 255, 255, 0.8) }
+                                    .active { color: rgba(255, 255, 255, 1); }
+                                    
+                                }
+                            }
+                        }
+        
+                        span {
+                            position: absolute;
+                            right: 0;
+                            top: toRem(-50);
+                            background-color: $color-status-error;
+                            padding: toRem(7.5) toRem(10);
+                            border-radius: toRem(2);
+                            cursor: pointer;
+                            transition: $transition ;
+        
+                            &:hover {
+                                background-color: $color-status-error-hover;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            tbody {
+                background-color: hsl(180, 100%, 9%);
+    
+                tr { 
+                    border-bottom: toRem(1) solid hsl(180, 100%, 7%) !important; 
+    
+                    &:hover { 
+                        background-color: hsl(180, 100%, 6%); 
+                        
+                        .details {
+                            height: auto;
+                            padding-bottom: toRem(10);
+                            opacity: 1;
+                        }
+                    }
+
+                    td ::selection {
+                        background-color: var(--page-color-23);
+                        color: var(--page-color-80);
+                    }
+                }
+            }
+    
+            tfoot {
+                background-color: hsl(180, 100%, 7%);
+    
+                &:hover { 
+                    .details {
+                        height: auto;
+                        padding-bottom: toRem(10);
+                        opacity: 1;
+                    }
+                }
+    
+                tr {
+                    &:hover { background-color: hsl(180, 100%, 6%); }
+                }
+            }
+    
+            tr {
+                position: relative;
+                padding: 0 toRem(20);
+                border-left: toRem(3) solid transparent;
+                transition: $transition;
+                display: grid;
+    
+                .data {
+                    display: grid;
+                    grid-template-columns: auto 1fr 1fr 1fr;
+                    align-items: center;
+    
+                    & > i { cursor: pointer; }
+
+                    div {
+                        padding: toRem(20) 0 toRem(20) toRem(5);
+                        min-height: toRem(65);
+                        transition: $transition;
+                        display: flex;
+                        align-items: center;
+
+                        /* Tablet and above */
+                        @media only screen and (min-width: 47.938rem) {
+                          & { padding: toRem(20) }
+                        }
+    
+                        &:last-child {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+    
+                        button { 
+                            width: fit-content;
+                            transition: $transition;
+
+                            &:hover { opacity: .9; }
+                        }
+    
+                        span { font-weight: $font-weight-semibold; }
+                    }
+                }
+    
+                .details {
+                    width: 100%;
+                    padding: 0 toRem(20) 0 0;
+                    display: grid;
+                    align-items: center;
+                    gap: $gap-base-mobile;
+                    height: 0;
+                    overflow: hidden;
+                    transition: height 0.25s ease, padding-bottom 0.5s ease, opacity 1s ease;
+                    opacity: 0;
+
+                    /* Tablet and above */
+                    @media only screen and (min-width: 47.938rem) {
+                      & { grid-template-columns: 1fr 1fr; }
+                    }
+
+                    li, span {
+                        color: rgba(255, 255, 255, .85);
+                        display: flex;
+                        align-items: center;
+                        gap: $gap-x-small-mobile;
+                    }
+
+                    span { text-transform: none; }
+
+                    i { opacity: 0.85; }
+    
+                    ul {   
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                        gap: $gap-tiny-mobile;
+
+                        li { text-transform: capitalize; }
+                    }
+                }   
+            }
+
+            i.fa-trash-can {
+                color: $color-white;
+                cursor: pointer;
+                transition: $transition;
+
+                &:hover { color: $color-status-error-hover; }
+                position: absolute;
+                right: toRem(16);
+            }
+        }
+    
+        .pagination {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: $gap-medium-mobile;
+    
+            nav {
+                display: grid;
+                grid-template-columns: auto 1fr auto;
+                align-items: center;
+                gap: $gap-base-mobile;
+    
+                ul {
+                    display: flex;
+                    gap: $gap-x-small-mobile;
+    
+                    li {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: toRem(40);
+                        width: toRem(40);
+                        border-radius: toRem(6);
+                        font-weight: $font-weight-bold;
+                        transition: $transition;
+    
+                        &[data-valid='true'] {
+                            cursor: pointer;
+    
+                            &:hover {
+                                transform: scale(1.05);
+                                background-color: $color-primary-900;
+                            }
+        
+                            &[data-active='true'] {
+                                background-color: $color-primary-600;
+        
+                                &:hover { background-color: $color-primary-500; }
+                            }
+                        }
+                    }
+                }
+    
+                i {
+                    cursor: pointer;
+                    transition: $transition;
+    
+                    &:first-child:hover { translate: toRem(-1.5) 0; }
+                    &:last-child:hover { translate: toRem(1.5) 0; }
+                }
+            }
+    
+            span {
+                color: rgba(255, 255, 255, 0.85);
+                text-transform: none;
+            }
+        }    
+    }
+
+    & > button {
+        position: fixed;
+        bottom: toRem(20);
+        right: toRem(20);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: toRem(40);
+        height: toRem(40);
+        background-color: $color-primary-600;
+        border-radius: toRem(20);
+        white-space: nowrap;
+        overflow: hidden;
+        transition: $transition;
+
+        &::after { 
+            font-family: "Font Awesome 6 Free";
+            content: "\f067";
+        }
+
+        &:hover{
+            box-shadow: inset 0 0 0 toRem(40) $color-secondary-700;
+            transform: scale(1.1);
+        }
+
+        /* Laptop and above */
+        @media only screen and (min-width: 61.188rem) {
+            & { bottom: toRem(40); }
+
+            &:hover { 
+                width: toRem(160); 
+            
+                &::after {
+                    font-family: $font-family;
+                    content: "Crear Evento";
+                }
+            }
+        }
+    }
+}

@@ -57,7 +57,7 @@
   border-radius: 0.25rem;
   text-align: center;
 }
-#Hero nav ul li a {
+#Hero nav ul li a, #Hero nav ul li button {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   /* Tablet */
@@ -65,19 +65,19 @@
   /* Desktop */
 }
 @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
-  #Hero nav ul li a {
+  #Hero nav ul li a, #Hero nav ul li button {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 }
 @media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
-  #Hero nav ul li a {
+  #Hero nav ul li a, #Hero nav ul li button {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
 }
 @media only screen and (min-width: 80rem) {
-  #Hero nav ul li a {
+  #Hero nav ul li a, #Hero nav ul li button {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
@@ -86,7 +86,6 @@
   padding-left: 0;
 }
 #Hero nav .links li a {
-  color: #ffffff;
   transition: 0.5s ease;
 }
 #Hero nav .links li a.selected {
@@ -126,20 +125,20 @@
   outline-offset: 0.9375rem;
   outline-color: rgba(255, 255, 255, 0);
 }
-#Hero nav .sign li a {
+#Hero nav .sign li button {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   /* Tablet */
   /* Laptop and above */
 }
 @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
-  #Hero nav .sign li a {
+  #Hero nav .sign li button {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
 }
 @media only screen and (min-width: 61.188rem) {
-  #Hero nav .sign li a {
+  #Hero nav .sign li button {
     padding-top: 0.875rem;
     padding-bottom: 0.875rem;
   }
@@ -160,7 +159,7 @@
   box-shadow: inset 0 0 1.25rem #33a6a6, 0 0 1.25rem hsl(175, 100%, 10%);
   border: 0.0625rem solid #aaffff;
 }
-#Hero nav .sign .signIn a {
+#Hero nav .sign .signIn button {
   color: #aaffff;
 }
 #Hero section {
@@ -842,7 +841,7 @@
   background: #e6f5f5;
   position: absolute;
   top: -50%;
-  left: -112%;
+  left: -130%;
   transform: rotate(45deg);
   transition: 0.5s ease;
 }

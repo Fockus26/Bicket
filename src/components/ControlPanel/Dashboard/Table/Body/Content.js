@@ -1,46 +1,62 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+
 import DetailData from './DetailData.js';
+
 import useColorPage from 'utils/useColorPage.js'
 
 function Content(props) {
     const { 
         row, dataHeader, selectedRows, selectRow, handleDeleteRow
     } = props
+    const navigate = useNavigate()
 
     const isSelected = selectedRows.find(actualRow => actualRow.id === row.id).isSelected
 
-    const colorPage = useColorPage(row.page, false)
+    const colorPage = useColorPage(row.page)
 
     return (
         <tr 
             key={row.id}
-            style={{ borderColor: colorPage }}
+            style={{borderColor: colorPage.colorBase}}
         >
-            <div className='data'>
-                <i 
-                    className={`${isSelected ? 'fa-solid fa-square-check' : 'fa-regular fa-square'}`}
-                    onClick={() => selectRow(row.id)}
-                    style={{ color: colorPage }}
-                />
-                { dataHeader.map((key, index) => {
-                    return (
-                        row[key] ? (
-                            <td key={index} style={{ color: key === 'page' ? colorPage : undefined }}>
-                                { key === 'page'
-                                    ? <a href='#' style={{ color: colorPage }}>{row[key]}</a>
-                                    : <p>{row[key]}</p>
-                                }
-                                { index === dataHeader.length - 1 && isSelected &&
-                                    <i className="fa-solid fa-trash-can" onClick={() => handleDeleteRow(row.id)} /> 
-                                }
-                            </td>
-                        ) 
-                        : null
-                    )                    
-                })}
-            </div>
+            <td style={colorPage.colorVariations}>
+                <div className='data'>
+                    <i 
+                        className={`${isSelected ? 'fa-solid fa-square-check' : 'fa-regular fa-square'}`}
+                        onClick={() => selectRow(row.id)}
+                        style={{ color: colorPage.colorBase }}
+                    />
+                    {dataHeader.map((key, index) => {
+                        return (
+                            row[key] ? (
+                                <div 
+                                    key={`${row.id}-${index}`} // Usa una clave única
+                                    style={{ color: key === 'page' ? colorPage.colorBase : undefined }}
+                                >
+                                    { key === 'page'
+                                        ? <button 
+                                            onClick={() => navigate('')}
+                                            style={{ color: colorPage.colorBase }}
+                                            >   
+                                                {row[key]}
+                                            </button>
+                                        : <span>{row[key]}</span>
+                                    }
 
-            <DetailData colorPage={{color: colorPage}} detailData={row} />
+                                    <i 
+                                        className={'fa-solid fa-trash-can ' + ((index === dataHeader.length - 1 && isSelected) ? '' : 'hide')} 
+                                        onClick={() => handleDeleteRow(row.id)} 
+                                    /> 
+                                </div>
+                            ) 
+                            : null
+                        )                    
+                    })}
+                </div>
+
+                <DetailData colorPage={{color: colorPage.colorBase}} detailData={row} />
+            </td>
         </tr>
     )
 }

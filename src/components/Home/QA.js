@@ -5,11 +5,11 @@ function QA() {
   const [ activeAnswer, setActiveAnswer ] = useState(null)
   const showContent = answerId => activeAnswer === answerId ? setActiveAnswer(null) : setActiveAnswer(answerId)
 
-  const [isTablet, setIsTablet] = useState(window.innerWidth > 766);
+  const [isTablet, setIsTablet] = useState(window.innerWidth > 767);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsTablet(window.innerWidth > 766);
+      setIsTablet(window.innerWidth > 767);
     }
 
     // Agregar el event listener

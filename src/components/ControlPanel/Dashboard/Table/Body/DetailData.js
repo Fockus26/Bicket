@@ -2,29 +2,19 @@ import React from 'react'
 
 function DetailData(props) {
   const { colorPage, detailData } = props
-  const { message, location, tickets, status } = detailData
-
+  const { message, status, date, time } = detailData
+  
   return (
     <>
       { detailData && 
-        <div className='details'>
-          <span className='message'>
+        <section className='details'>
+          <span>
             <i style={colorPage} className="fa-regular fa-message" />
             {message}
           </span>
 
-          <div>
-            <span className='location'>
-              <i style={colorPage} className="fa-solid fa-location-dot" />
-              {location}
-            </span>
-
-            <span className='tickets'>
-              <i style={colorPage} className="fa-solid fa-hashtag" />
-              {tickets} {tickets > 1 ? 'tickets' : 'ticket'}
-            </span>
-
-            <span>
+          <ul>
+            <li>
               <i 
                 className={
                   `fa-solid fa-${status === 'warning' ? 'triangle-exclamation' : 
@@ -33,9 +23,19 @@ function DetailData(props) {
                 style={colorPage}
               />
               {status}
-            </span>
-          </div>
-        </div>
+            </li>
+
+            <li>
+              <i style={colorPage} className="fa-solid fa-calendar-days" />
+              {date}
+            </li>
+
+            <li>
+              <i style={colorPage} className="fa-solid fa-clock" />
+              {time}
+            </li>
+          </ul>
+        </section>
       }
     </>
   )

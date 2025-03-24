@@ -25,8 +25,8 @@ function Content(props) {
     video.paused ? video.play() : video.pause()
   }
 
-  const RenderPage = page => 
-      <article style={useColorPage(activePage, true)}>
+  const RenderPage = ({page}) => 
+      <article style={useColorPage(activePage).colorVariations}>
         {isLaptop && renderMedia(page[prevFeature].media)}
   
         <div>
@@ -73,13 +73,14 @@ function Content(props) {
   const renderFeature = feature => 
     activeFeature && 
     <ul className={activeFeature}>
+      
       { feature.map(( featureValue, indexFeature ) => 
         <li key={ indexFeature }>
           { activeFeature === 'buying' ? (
               <i className={featureValue} />
             )
             : (
-              <>
+              <>                
                 { activeFeature === 'authentication' && <img src={featureValue.imgSrc} alt={featureValue.imgAlt} /> }
 
                 <h3>{ featureValue.caption }</h3>
@@ -104,7 +105,9 @@ function Content(props) {
 
   return (
     <>
-      { Object.entries(dataPagesArticles).map(([keyPage, valuePage]) => activePage === keyPage && RenderPage(valuePage) )}
+      { Object.entries(dataPagesArticles).map(
+        ([keyPage, valuePage]) => activePage === keyPage && <RenderPage key={keyPage} page={valuePage} />  
+      )}
     </>
   )
 }

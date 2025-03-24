@@ -3,7 +3,9 @@ import Nav from './Bar/Nav';
 import Content from './Bar/Content';
 import { dataPages } from './data'
 
-function BarFeature() {
+import useDeviceSize from 'utils/useDeviceSize';
+
+function Bar() {
   const dataPagesNavBar = Object.entries(dataPages).reduce((acc, [key, { navBar }]) => {
     return {
       ...acc,
@@ -17,19 +19,10 @@ function BarFeature() {
     };
   }, {});
   
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [isLaptop, setIsLaptop] = useState(window.innerWidth > 978);
+  const { isMobile, isLaptop } = useDeviceSize()
+  
   const sectionRef = useRef(null);
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 767);
-      setIsLaptop(window.innerWidth > 978);
-    }
-  
-    // Agregar el event listener
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Asegúrate de verificar el tamaño de la ventana al montar el componente
-  
+  useEffect(() => {  
     // Manejo del IntersectionObserver para la visibilidad de la sección
     const observer = new IntersectionObserver(
       entries => {
@@ -54,7 +47,6 @@ function BarFeature() {
   
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
       if (sectionElement) {
         observer.unobserve(sectionElement);  // Usar la variable local
       }
@@ -92,4 +84,4 @@ function BarFeature() {
   );
 }
 
-export default BarFeature;
+export default Bar;

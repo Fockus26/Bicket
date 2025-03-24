@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import useDeviceSize from 'utils/useDeviceSize';
+
 import logo from 'assets/image/logo/logo-dark.png';
 import shortLogo from 'assets/image/logo/short-logo-dark.png';
 
 function Nav() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
-  const [isTablet, setIsTablet] = useState(window.innerWidth < 979);
+  const { isMobile, isTablet } = useDeviceSize()
+  const navigate = useNavigate()
+
   const [actualSection, setActualSection] = useState("Hero");
   const [isShowMenu, setIsShowMenu] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [showAccountButtons, setShowAccountButtons] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(window.scrollY);
-
-  // Cambia su estilo dependiendo del ancho de pantalla
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 767);
-      setIsTablet(window.innerWidth < 979);
-    };
-
-    window.addEventListener('resize', handleResize);
-  });
-
+  
   // Impide que se haga scroll cuando el menú está abierto
   useEffect(() => { document.body.style.overflow = isShowMenu ? 'hidden' : 'auto' }, [isShowMenu]);
 
@@ -88,15 +83,15 @@ function Nav() {
             pointerEvents: !showAccountButtons && 'none',  
           }}>
           <li className="signUp">
-            <a href='/authentication/sign-up' >Sign Up</a>
+            <button onClick={() => navigate('/authentication/sign-up')} >Sign Up</button>
           </li>
           <li className="signIn">
-            <a href='/authentication/sign-in' >Sign In</a>
+            <button onClick={() => navigate('/authentication/sign-in')} >Sign In</button>
           </li>
         </ul>
       }
     </nav>
   );
-}
-
+} 
+  
 export default Nav;

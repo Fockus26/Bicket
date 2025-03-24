@@ -19,6 +19,16 @@ body {
   color: $color-gray-100;
 }
 
+body::-webkit-scrollbar {
+  width: .5em;
+  background-color: $color-gray-1000;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  border-radius: toRem(20);
+  background-color: $color-secondary-700;
+}
+
 h1, h2, h3, span, a, button { text-transform: uppercase; }
 
 h1 {
@@ -48,6 +58,8 @@ p, span, a, button, i {
 p { font-weight: $font-weight-light; }
 span { font-weight: $font-weight-regular; }
 a, button { font-weight: $font-weight-bold; }
+
+button { color: $color-white; }
 
 @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
   h1 { font-size: clamp($font-size-title-large-tablet-min, 4.5vw, $font-size-title-large-tablet-max); }
@@ -91,14 +103,73 @@ input, button, textarea, select {
   width: 100%;
 }
 
+textarea {
+  resize: none;
+  overflow: hidden;
+}
+
 /* clears the ‘X’ from Internet Explorer */
-input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
-input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
-/* clears the ‘X’ from Chrome */
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
+input {
+  appearance: none;
+
+  & [type="search"] {
+    &::-ms-clear, &::-ms-reveal { display: none; width : 0; height: 0; }
+
+    /* clears the ‘X’ from Chrome */
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration { display: none; }
+  }
+
+  &[type="number"] {
+    /* Para Chrome, Safari, Edge y Opera */
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button { -webkit-appearance: none; }
+    /* Para Firefox */
+    &[type="number"] { -moz-appearance: textfield; }
+  }
+
+  &[type="checkbox"] { cursor: pointer; }
+
+  &[type="date"], &[type="time"] {
+    position: relative;
+    -webkit-appearance: none;
+    
+    // Modifica el icono del calendario
+    &::-webkit-calendar-picker-indicator { 
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: transparent;
+      background: 0 0;
+      margin: 0;
+      opacity: 0;
+      pointer-events: auto;
+    }   
+  }
+
+  &[type="date"] {                    
+    // Margenes en Android
+    &::-webkit-date-and-time-value { margin: 0; }
+    
+    // Elimina los iconos de flechase
+    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button, &::-webkit-clear-button {
+      -webkit-appearance: none;
+      display: none;
+    }
+    // Quita el padding entre los numeros
+    &::-webkit-datetime-edit-month-field,
+    &::-webkit-datetime-edit-day-field,
+    &::-webkit-datetime-edit-year-field,
+    &::-webkit-datetime-edit-fields-wrapper { padding: 0; }
+  }
+
+}
+
 
 img, video {
   width: 100%;

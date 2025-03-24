@@ -40,10 +40,13 @@ function Table(props) {
     useEffect(() => {
         setActualData(sortedData.slice(startItem - 1, endItem))
     }, [startItem, endItem, sortedData])
+    
+    const [selectedRows, setSelectedRows] = useState([]) 
 
-    const [selectedRows, setSelectedRows] = useState(
-        dataDashboard.map(data => ({ id: data.id, isSelected: false }))
-    ) 
+    useEffect(() => {
+        setSelectedRows(dataDashboard.map(data => ({ id: data.id, isSelected: false })));
+    }, [dataDashboard]);
+
 
     const [ isAllRowsSelected, setIsAllRowsSelected ] = useState(false);
     const [ isAllActualRowsSelected, setIsAllActualRowsSelected ] = useState(false)

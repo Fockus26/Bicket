@@ -65,7 +65,7 @@
         border-radius: $gap-tiny-mobile;
         text-align: center;
 
-        a {
+        a, button {
           padding-left: $gap-small-mobile;
           padding-right: $gap-small-mobile;
 
@@ -90,7 +90,6 @@
               padding-right:$gap-small-desktop; 
             }
           }
-
         }
       }
     }
@@ -99,7 +98,6 @@
       li {
         &:first-child a { padding-left: 0; }
         a {
-          color: $color-white;
           transition: $transition;
 
           &.selected { color: $color-primary-emphasis-text; }
@@ -140,7 +138,7 @@
           outline-color: rgba(255, 255, 255, 0);
         }
 
-        a { 
+        button { 
           padding-top: $gap-x-small-mobile; 
           padding-bottom: $gap-x-small-mobile; 
 
@@ -180,7 +178,7 @@
           border: toRem(1) solid $color-primary-emphasis-text;
         }
 
-        a { color: $color-primary-emphasis-text; }
+        button { color: $color-primary-emphasis-text; }
       }
     }
   }
