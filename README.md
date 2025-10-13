@@ -6,105 +6,142 @@ A case study of a SaaS prototype that evolved from the previous Tickets project,
 
 ## 🌍 Overview
 
-Bicket is a SaaS prototype designed to improve on the minimal UI of the previous Tickets project.  
+Bicket is a SaaS prototype designed to improve on the minimal UI of the previous Tickets project.
 
-Its goal was to provide a complete ticket management system where any registered client could create, edit, and delete tickets.  
+Its goal was to provide a complete ticket management system where any registered client could create, edit, and delete tickets.
 
 The platform included:
-- A modern landing page with product explanation  
-- Interactive demos and videos  
-- Q&A and pricing sections  
-- User authentication (sign up & login)  
-- A private dashboard to manage tickets  
+
+- A modern landing page with product explanation
+- Interactive demos and videos
+- Q&A and pricing sections
+- User authentication (sign up & login)
+- A private dashboard to manage tickets
 
 Although currently paused, the project was envisioned to evolve into a full SaaS with payment integration, API services, and an admin panel.
 
 ---
 
 ## ✨ Features
-- 🖥️ Landing page with product explanation and demo videos  
-- 🔐 User authentication (Sign up / Login)  
-- 📂 Dashboard for ticket management (create, edit, delete)  
-- 📊 Pricing and Q&A sections  
-- 🎨 Modern responsive UI with React + SASS  
+
+- 🖥️ Landing page with product explanation and demo videos
+- 🔐 User authentication (Sign up / Login)
+- 📂 Dashboard for ticket management (create, edit, delete)
+- 📊 Pricing and Q&A sections
+- 🎨 Modern responsive UI with React + SASS
+
+---
+
+## 📸 Showcase
+
+### 🏠 Homepage
+
+![Home 1](./assets/gifs/Home%201.gif)
+![Home 2](./assets/gifs/Home%202.gif)
+
+### 👤 Register
+
+![Register 1](./assets/gifs/Register%201.gif)
+![Register 2](./assets/gifs/Register%202.gif)
+
+### 🔐 Login
+
+![Login](./assets/gifs/Login.gif)
+
+### 📊 Dashboard
+
+![Dashboard](./assets/gifs/Dashboard.gif)
 
 ---
 
 ## 🛠 Tech Stack
-- **Frontend**: React, JavaScript (ES6+), SASS, CSS3  
-- **UI/UX**: Responsive design, custom SCSS architecture  
-- **Tools**: Vercel (deployment), video assets for demos  
+
+- **Frontend**: React, JavaScript (ES6+), SASS, CSS3
+- **UI/UX**: Responsive design, custom SCSS architecture
+- **Tools**: Vercel (deployment), video assets for demos
 
 ---
 
 ## 📂 Project Structure
+
 ```text
 Bicket/
-│── public/
+├── server/
 │
-├── src/
-│ ├── assets/
-│ │ ├── image/
-│ │ ├── svg/
-│ │ └── video/
-│ │
-│ ├── components/
-│ │ ├── Authentication/
-│ │ │ ├── SignIn.js
-│ │ │ └── SignUp/...
-│ │ ├── ControlPanel/
-│ │ │ ├── Dashboard/...
-│ │ │ ├── CreateEvent.js
-│ │ │ └── Account.js
-│ │ ├── General/
-│ │ │ ├── Footer.js
-│ │ │ └── Error404.js
-│ │ └── Home/
-│ │ ├── Features/
-│ │ ├── Hero/
-│ │ ├── Pricing/
-│ │ └── QA/
-│ │
-│ ├── css/
-│ ├── scss/
-│ ├── utils/
-│ │ ├── scrollToTop.js
-│ │ ├── useColorPage.js
-│ │ └── useDeviceSize.js
-│ │
-│ ├── App.js
-│ ├── index.js
-│ └── setupTests.js
+├── client/
+│   ├── public/
+│   │
+│   ├── src/
+│   │   ├── assets/
+│   │   │   ├── images/
+│   │   │   ├── svg/
+│   │   │   └── videos/
+│   │   │
+│   │   ├── components/
+│   │   │   ├── Authentication/
+│   │   │   │   ├── SignIn.jsx
+│   │   │   │   └── SignUp.jsx
+│   │   │   │
+│   │   │   ├── ControlPanel/
+│   │   │   │   ├── Dashboard/
+│   │   │   │   ├── CreateEvent.jsx
+│   │   │   │   └── Account.jsx
+│   │   │   │
+│   │   │   ├── General/
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   └── Error404.jsx
+│   │   │   │
+│   │   │   └── Home/
+│   │   │       ├── Features/
+│   │   │       ├── Hero/
+│   │   │       ├── Pricing/
+│   │   │       └── QA/
+│   │   │
+│   │   ├── css/
+│   │   │
+│   │   ├── scss/
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── scrollToTop.js
+│   │   │   ├── useColorPage.js
+│   │   │   └── useDeviceSize.js
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── vite.config.js
+│   │
+│   ├── package.json
+│   ├── index.html
+│   └── README.md
 │
 └── README.md
 ```
 
 ---
 
-## 📸 Showcase
-*(Screenshots, demos, or videos can be added here)*
-
----
-
 ## ⚙️ Installation & Setup
 
-### Clone repository  
+### Clone repository
+
 ```bash
 git clone https://github.com/fockus26/bicket.git
 cd bicket
 ```
 
 ### Install dependencies
+
 ```bash
+cd client
 npm install
 ```
 
 ### Run project
+
 ```bash
-npm start
+npm run dev
 ```
 
-App will run on: http://localhost:3000
+App will run on: http://localhost:5173
 
 ---
 
