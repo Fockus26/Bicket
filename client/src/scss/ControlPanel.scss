@@ -1,0 +1,60 @@
+@use 'ControlPanel/Dashboard';
+@use 'ControlPanel/CreateEvent';
+@use 'Index/Variables' as *;
+@use 'Index/Functions' as *;
+
+#ControlPanel {
+    background-color: $color-primary-1100;
+
+    & > nav {
+        display: flex;
+        justify-content: space-between;
+        background-color: $color-primary-700;
+        padding: $gap-base-mobile 5%;
+
+        div {
+            display: flex;
+            align-items: center;
+            gap: $gap-large-mobile;
+
+            /* Tablet and above */
+            @media only screen and (min-width: 47.938rem) {
+              & { gap: &gap-x-large-mobile; }
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+
+                /* Tablet and above */
+                @media only screen and (min-width: 47.938rem) {
+                  & { gap: $gap-x-small-mobile; }
+                }
+
+                &.create {
+                    background-color: white;
+                    border-radius: toRem(5);
+                    padding-right: toRem(10);
+                    color: $color-primary-700;
+
+                    &.active, &:hover { background-color: $color-primary-emphasis-text; }
+                }
+            }
+        }
+
+        button {
+            padding: toRem(10);
+            width: fit-content;
+            transition: $transition;
+
+            &:first-child { padding-left: 0; }
+            &:last-child { padding-right: 0; }
+          
+            &.active, &:hover { color: $color-primary-emphasis-text; }
+
+            i { font-size: toRem(22); }
+
+            span { font-weight: $font-weight-bold; }
+        }
+    }
+}

@@ -1,0 +1,350 @@
+@use "../Index/Variables" as *;
+@use "../Index/Functions" as *;
+
+#Hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* Large Height */
+  @media only screen and (min-height: 50rem) {
+    & {
+      height: 75vh;
+    }
+  }
+
+  /* Animated Canvas */
+  canvas {
+    position: absolute;
+    z-index: -10;
+    width: 100%;
+    height: calc(100% + toRem(1));
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: $gap-base-mobile 5%;
+    transition: $transition;
+
+    &.showMenu {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      justify-content: center;
+      opacity: 0.9;
+      background-color: $color-primary-900;
+      box-shadow: inset 0 0 toRem(100) 0 $color-primary-1100;
+
+      .links {
+        flex-direction: column;
+
+        li {
+          width: 100%;
+
+          a {
+            padding: $gap-base-mobile $gap-small-mobile;
+            font-size: $font-size-title-large-mobile-min;
+          }
+        }
+
+        i {
+          position: absolute;
+          top: toRem(32);
+          left: 5%;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      transition: $transition;
+
+      li {
+        border-radius: $gap-tiny-mobile;
+        text-align: center;
+
+        a,
+        button {
+          padding-left: $gap-small-mobile;
+          padding-right: $gap-small-mobile;
+
+          /* Tablet */
+          @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
+            & {
+              padding-left: $gap-small-tablet;
+              padding-right: $gap-small-tablet;
+            }
+          }
+          /* Laptop */
+          @media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
+            & {
+              padding-left: $gap-small-laptop;
+              padding-right: $gap-small-laptop;
+            }
+          }
+          /* Desktop */
+          @media only screen and (min-width: 80rem) {
+            & {
+              padding-left: $gap-small-desktop;
+              padding-right: $gap-small-desktop;
+            }
+          }
+        }
+      }
+    }
+
+    .links {
+      li {
+        &:first-child a {
+          padding-left: 0;
+        }
+        a {
+          transition: $transition;
+
+          &.selected {
+            color: $color-primary-emphasis-text;
+          }
+
+          img {
+            width: toRem(30);
+
+            /* Laptop */
+            @media only screen and (min-width: 61.188rem) {
+              & {
+                width: toRem(150);
+              }
+            }
+          }
+        }
+        &:hover a {
+          color: $color-primary-emphasis-text;
+        }
+      }
+
+      i {
+        color: $color-white;
+        font-size: $font-size-title-small-mobile-max;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+          color: $color-primary-emphasis-text;
+        }
+      }
+    }
+
+    .sign {
+      gap: $gap-base-mobile;
+
+      li {
+        outline-offset: 0;
+        border: toRem(1) solid rgba(0, 200, 200, 0);
+        transition: 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+        white-space: nowrap;
+
+        &:hover {
+          outline-offset: toRem(15);
+          outline-color: rgba(255, 255, 255, 0);
+        }
+
+        button {
+          padding-top: $gap-x-small-mobile;
+          padding-bottom: $gap-x-small-mobile;
+
+          /* Tablet */
+          @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
+            & {
+              padding-top: $gap-x-small-tablet;
+              padding-bottom: $gap-x-small-tablet;
+            }
+          }
+          /* Laptop and above */
+          @media only screen and (min-width: 61.188rem) {
+            & {
+              padding-top: $gap-x-small-laptop;
+              padding-bottom: $gap-x-small-laptop;
+            }
+          }
+        }
+      }
+
+      .signUp {
+        outline-color: $color-white;
+        outline: toRem(1) solid $color-white;
+
+        &:hover {
+          box-shadow: inset 0 0 toRem(20) $color-white,
+            0 0 toRem(20) rgba(255, 255, 255, 0.2);
+          border: toRem(1) solid $color-white;
+        }
+      }
+
+      .signIn {
+        outline-color: $color-primary-emphasis-text;
+        outline: toRem(1) solid $color-primary-emphasis-text;
+
+        &:hover {
+          box-shadow: inset 0 0 toRem(20) $color-primary-400,
+            0 0 toRem(20) hsl(175, 100%, 10%);
+          border: toRem(1) solid $color-primary-emphasis-text;
+        }
+
+        button {
+          color: $color-primary-emphasis-text;
+        }
+      }
+    }
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-medium-mobile;
+    padding: $gap-base-mobile $gap-medium-mobile;
+    text-align: center;
+    border: $gap-tiny-mobile solid $color-white;
+    border-radius: $gap-medium-mobile;
+    transition: $transition;
+
+    &:hover {
+      transform: scale(1.01);
+
+      button {
+        margin-top: $gap-small-mobile;
+
+        &:before,
+        &:after {
+          width: calc(50% - toRem(1));
+          height: calc(100% - toRem(2));
+          transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
+        }
+
+        hr:before,
+        hr:after {
+          width: 50%;
+          border-bottom: toRem(2) solid $color-white;
+          height: toRem(50);
+          opacity: 1;
+          transition: opacity 0s ease-out 0.29s, width 0.2s ease-out 0.3s;
+        }
+
+        span {
+          color: $color-white;
+        }
+      }
+    }
+
+    /* CTA */
+    button {
+      width: 70%;
+      margin: 0 auto;
+      position: relative;
+      height: toRem(50);
+      transition: $transition;
+
+      &:hover {
+        span:after {
+          width: 100%;
+        }
+      }
+
+      /* Border Top left and right animation */
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: $gap-base-mobile;
+        height: 0;
+        border: toRem(2) solid $color-white;
+        border-bottom: none;
+        transition: height 0.2s ease-out, width 0.2s ease-out 0.2s;
+      }
+      &:before {
+        right: 50%;
+        border-radius: $gap-x-small-mobile 0 0 $gap-x-small-mobile;
+        border-right: none;
+      }
+      &:after {
+        left: 50%;
+        border-radius: 0 $gap-x-small-mobile $gap-x-small-mobile 0;
+        border-left: none;
+      }
+
+      /* Border bottom animation */
+      hr {
+        border: none;
+
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          opacity: 0;
+        }
+        &:before {
+          left: 0%;
+          border-bottom-left-radius: $gap-x-small-mobile;
+        }
+        &:after {
+          right: 0%;
+          border-bottom-right-radius: $gap-x-small-mobile;
+        }
+      }
+
+      /* Content animation */
+      span {
+        color: transparent;
+        font-weight: $font-weight-bold;
+        transition: color 0.25s ease-out 0.3s;
+
+        &:after {
+          position: absolute;
+          inset: 0;
+          content: attr(data-attr-span);
+          width: 0%;
+          color: $color-primary-900;
+          background: $color-white;
+          border-radius: $gap-x-small-mobile;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          overflow: hidden;
+          white-space: nowrap;
+          transition: 0.2s;
+        }
+      }
+
+      /* Below Mobile */
+      @media only screen and (max-width: 30rem) {
+        & {
+          width: 90%;
+        }
+      }
+    }
+
+    /* Tablet */
+    @media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
+      & {
+        padding: $gap-base-tablet $gap-medium-tablet;
+      }
+    }
+    /* Laptop */
+    @media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
+      & {
+        padding: $gap-base-laptop $gap-medium-laptop;
+      }
+    }
+    /* Desktop */
+    @media only screen and (min-width: 80rem) {
+      & {
+        padding: $gap-base-desktop $gap-medium-desktop;
+      }
+    }
+  }
+}

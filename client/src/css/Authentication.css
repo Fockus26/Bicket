@@ -1,0 +1,753 @@
+@charset "UTF-8";
+#Authentication.signIn form {
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  max-width: 25rem;
+  border-radius: 0.3125rem;
+  border: 0.125rem solid #66bdbd;
+  box-shadow: inset 0 0 0.5rem #66bdbd;
+  padding: 4rem 0;
+  overflow: hidden;
+  transition: 0.5s ease;
+  /* Tablet */
+  /* Laptop */
+  /* Desktop */
+}
+@media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
+  #Authentication.signIn form {
+    gap: 4rem;
+  }
+}
+@media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
+  #Authentication.signIn form {
+    gap: 5rem;
+  }
+}
+@media only screen and (min-width: 80rem) {
+  #Authentication.signIn form {
+    gap: 6rem;
+  }
+}
+#Authentication.signIn form:hover, #Authentication.signIn form:focus-within {
+  border-color: #aaffff;
+  box-shadow: inset 0 0 2.5rem #aaffff, 0 0 2.5rem #003333;
+}
+#Authentication.signIn form:hover:before, #Authentication.signIn form:focus-within:before {
+  background-size: 200% 0.25rem, 0.25rem 400%, 0.25rem 400%, 55% 0.25rem, 55% 0.25rem;
+  background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+  transform: scaleX(1) rotate(180deg);
+  transition-delay: 0s, 0.2s, 0.4s;
+}
+#Authentication.signIn form:hover h1, #Authentication.signIn form:focus-within h1 {
+  color: #aaffff;
+}
+#Authentication.signIn form:hover fieldset div label, #Authentication.signIn form:focus-within fieldset div label {
+  color: #aaffff;
+}
+#Authentication.signIn form:hover fieldset div input, #Authentication.signIn form:focus-within fieldset div input {
+  color: #aaffff;
+}
+#Authentication.signIn form:hover fieldset div input#Email, #Authentication.signIn form:focus-within fieldset div input#Email {
+  border-color: #66bdbd;
+}
+#Authentication.signIn form:hover fieldset div input#Email:focus, #Authentication.signIn form:focus-within fieldset div input#Email:focus {
+  border-color: #aaffff;
+}
+#Authentication.signIn form:hover fieldset div input#Remember, #Authentication.signIn form:focus-within fieldset div input#Remember {
+  background-color: #aaffff;
+  border-color: #aaffff;
+}
+#Authentication.signIn form:hover fieldset div input#Remember:active, #Authentication.signIn form:hover fieldset div input#Remember:focus, #Authentication.signIn form:hover fieldset div input#Remember:checked, #Authentication.signIn form:focus-within fieldset div input#Remember:active, #Authentication.signIn form:focus-within fieldset div input#Remember:focus, #Authentication.signIn form:focus-within fieldset div input#Remember:checked {
+  background-color: #aaffff;
+  border: 0.125rem solid #aaffff;
+}
+#Authentication.signIn form:hover fieldset div input#Remember:checked:before, #Authentication.signIn form:focus-within fieldset div input#Remember:checked:before {
+  color: #001111;
+}
+#Authentication.signIn form:hover fieldset div .containerPassword, #Authentication.signIn form:focus-within fieldset div .containerPassword {
+  border-color: #66bdbd;
+}
+#Authentication.signIn form:hover fieldset div .containerPassword:focus-within, #Authentication.signIn form:focus-within fieldset div .containerPassword:focus-within {
+  border-color: #aaffff;
+}
+#Authentication.signIn form:hover fieldset div .containerPassword i, #Authentication.signIn form:focus-within fieldset div .containerPassword i {
+  color: #aaffff;
+}
+#Authentication.signIn form:hover fieldset button, #Authentication.signIn form:focus-within fieldset button {
+  color: #aaffff;
+  border-color: #66bdbd;
+}
+#Authentication.signIn form:hover fieldset button:hover, #Authentication.signIn form:focus-within fieldset button:hover {
+  color: #005555;
+  background-color: #aaffff;
+}
+#Authentication.signIn form:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #aaffff 0%, #aaffff 100%), linear-gradient(to top, #aaffff 50%, transparent 50%), linear-gradient(to top, #aaffff 50%, transparent 50%), linear-gradient(to right, #aaffff 0%, #aaffff 100%), linear-gradient(to left, #aaffff 0%, #aaffff 100%);
+  background-size: 100% 0.25rem, 0.25rem 200%, 0.25rem 200%, 0% 0.25rem, 0% 0.25rem;
+  background-position: 50% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease-in-out, background-position 0.2s ease-in-out, background-size 0.2s ease-in-out;
+  transform: scaleX(0) rotate(180deg);
+  transition-delay: 0.4s, 0.2s, 0s;
+  z-index: -10;
+}
+#Authentication.signIn form h1 {
+  color: #66bdbd;
+  transition: 0.5s ease;
+}
+#Authentication.signIn form fieldset {
+  display: grid;
+  gap: 1.5rem;
+  width: 70%;
+}
+#Authentication.signIn form fieldset div {
+  display: grid;
+  align-items: center;
+  gap: 0.25rem;
+  /* Tablet */
+  /* Laptop */
+  /* Desktop */
+}
+#Authentication.signIn form fieldset div.containerRemember {
+  grid-template-columns: auto 1fr;
+}
+#Authentication.signIn form fieldset div.containerRemember #Remember {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.3125rem;
+  border: 0.125rem solid #66bdbd;
+  background-color: #66bdbd;
+  cursor: pointer;
+  transition: 0.5s ease;
+  /* Tablet and above */
+}
+#Authentication.signIn form fieldset div.containerRemember #Remember:active, #Authentication.signIn form fieldset div.containerRemember #Remember:focus, #Authentication.signIn form fieldset div.containerRemember #Remember:checked {
+  background-color: #66bdbd;
+  border: 0.125rem solid #66bdbd;
+}
+#Authentication.signIn form fieldset div.containerRemember #Remember:checked::before {
+  content: "✓";
+  display: block;
+  font-size: 0.875rem;
+  text-align: center;
+  color: #004444;
+  transition: 0.5s ease;
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signIn form fieldset div.containerRemember #Remember {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  #Authentication.signIn form fieldset div.containerRemember #Remember:checked::before {
+    font-size: 1rem;
+  }
+}
+#Authentication.signIn form fieldset div label, #Authentication.signIn form fieldset div input {
+  color: #66bdbd;
+  transition: 0.5s ease;
+}
+#Authentication.signIn form fieldset div label {
+  cursor: pointer;
+  width: fit-content;
+}
+#Authentication.signIn form fieldset div input {
+  padding-bottom: 0.25rem;
+}
+#Authentication.signIn form fieldset div input#Email {
+  border-bottom: 0.1875rem solid #66bdbd;
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signIn form fieldset div input#Email {
+    border-color: transparent;
+  }
+}
+#Authentication.signIn form fieldset div .containerPassword {
+  display: flex;
+  gap: 0.75rem;
+  border-bottom: 0.1875rem solid #66bdbd;
+  transition: 0.5s ease;
+  /* Tablet and above */
+}
+#Authentication.signIn form fieldset div .containerPassword i {
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+  color: #66bdbd;
+  transition: 0.5s ease;
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signIn form fieldset div .containerPassword {
+    border-color: transparent;
+  }
+  #Authentication.signIn form fieldset div .containerPassword i {
+    color: transparent;
+  }
+}
+@media only screen and (min-width: 47.938rem) and (max-width: 61.188rem) {
+  #Authentication.signIn form fieldset div {
+    gap: 0.375rem;
+  }
+  #Authentication.signIn form fieldset div input {
+    padding-bottom: 0.375rem;
+  }
+  #Authentication.signIn form fieldset div .containerPassword {
+    gap: 1rem;
+  }
+  #Authentication.signIn form fieldset div .containerPassword i {
+    margin-right: 0.375rem;
+    margin-bottom: 0.375rem;
+  }
+}
+@media only screen and (min-width: 61.188rem) and (max-width: 80rem) {
+  #Authentication.signIn form fieldset div {
+    gap: 0.4375rem;
+  }
+  #Authentication.signIn form fieldset div input {
+    padding-bottom: 0.375rem;
+  }
+  #Authentication.signIn form fieldset div .containerPassword {
+    gap: 1.25rem;
+  }
+  #Authentication.signIn form fieldset div .containerPassword i {
+    margin-right: 0.4375rem;
+    margin-bottom: 0.4375rem;
+  }
+}
+@media only screen and (min-width: 80rem) {
+  #Authentication.signIn form fieldset div {
+    gap: 0.5rem;
+  }
+  #Authentication.signIn form fieldset div input {
+    padding-bottom: 0.375rem;
+  }
+  #Authentication.signIn form fieldset div .containerPassword {
+    gap: 1.5rem;
+  }
+  #Authentication.signIn form fieldset div .containerPassword i {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+#Authentication.signIn form fieldset button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: #66bdbd;
+  border: 0.125rem solid #66bdbd;
+  border-radius: 0.3125rem;
+  transition: 0.5s ease;
+  padding: 0.4375rem 0;
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signIn form fieldset button {
+    border-color: transparent;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+#Authentication.signUp button {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.25rem 0;
+  position: relative;
+  width: 80%;
+  max-width: 10rem;
+  max-height: 10rem;
+  background-color: #005555;
+}
+#Authentication.signUp button:hover h1, #Authentication.signUp button:hover i {
+  color: #33d6d6;
+}
+#Authentication.signUp button.loading, #Authentication.signUp button.ready {
+  width: 100%;
+  height: 100%;
+}
+#Authentication.signUp button.loading, #Authentication.signUp button.loading:before, #Authentication.signUp button.loading:after, #Authentication.signUp button.ready, #Authentication.signUp button.ready:before, #Authentication.signUp button.ready:after {
+  border-radius: 50%;
+}
+#Authentication.signUp button.loading:before, #Authentication.signUp button.loading:after {
+  animation: pulse 3s infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.025);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.025);
+  }
+}
+#Authentication.signUp button.loading i {
+  font-size: 0.5rem;
+  animation: bounce 1.5s infinite;
+}
+#Authentication.signUp button.loading i:nth-child(1) {
+  animation-delay: 0s;
+}
+#Authentication.signUp button.loading i:nth-child(2) {
+  animation-delay: 0.3s;
+}
+#Authentication.signUp button.loading i:nth-child(3) {
+  animation-delay: 0.6s;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+#Authentication.signUp button.ready i {
+  font-size: 1.75rem;
+}
+#Authentication.signUp button h1, #Authentication.signUp button i {
+  color: #00cccc;
+  font-size: 1rem;
+  transition: 0.5s ease;
+}
+#Authentication.signUp button::after, #Authentication.signUp button::before, #Authentication.signUp form.specificData::after, #Authentication.signUp form.specificData::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #33d6d6, #00b3b3, #00cccc, #009999, #00b3b3, #33d6d6);
+  padding: 0.125rem;
+  transition: 0.5s ease;
+  animation: 3s spin linear infinite;
+}
+#Authentication.signUp button::before, #Authentication.signUp form.specificData::before {
+  filter: blur(1.5rem);
+}
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+#Authentication.signUp form {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto 1fr auto;
+  max-width: 20rem;
+  height: 66vh;
+  background-color: transparent;
+}
+#Authentication.signUp form:not(.specificData):focus-within .entries:not(.error).error ~ i, #Authentication.signUp form:not(.specificData):hover .entries:not(.error).error ~ i {
+  color: #33d6d6;
+}
+#Authentication.signUp form:not(.specificData):focus-within .entries:not(.error).error .entry input, #Authentication.signUp form:not(.specificData):focus-within .entries:not(.error).error .entry .floating, #Authentication.signUp form:not(.specificData):hover .entries:not(.error).error .entry input, #Authentication.signUp form:not(.specificData):hover .entries:not(.error).error .entry .floating {
+  color: #b00038;
+}
+#Authentication.signUp form:not(.specificData):focus-within .entries:not(.error).error .entry .progress, #Authentication.signUp form:not(.specificData):hover .entries:not(.error).error .entry .progress {
+  background-color: #b00038;
+}
+#Authentication.signUp form:not(.specificData):focus-within .entries:not(.error) .entry input, #Authentication.signUp form:not(.specificData):focus-within .entries:not(.error) .entry .floating, #Authentication.signUp form:not(.specificData):hover .entries:not(.error) .entry input, #Authentication.signUp form:not(.specificData):hover .entries:not(.error) .entry .floating {
+  color: #33d6d6;
+}
+#Authentication.signUp form:not(.specificData):focus-within .entries:not(.error) .entry .progress, #Authentication.signUp form:not(.specificData):hover .entries:not(.error) .entry .progress {
+  background-color: #33d6d6;
+}
+#Authentication.signUp form.specificData {
+  grid-template-columns: 1fr;
+  max-width: 50rem;
+  padding: 3rem 1.5rem 1.5rem;
+  background-color: #003333;
+}
+#Authentication.signUp form.specificData .entries {
+  height: 100%;
+  align-items: center;
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .entries {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+#Authentication.signUp form.specificData .entries .entry {
+  grid-template-columns: 1fr;
+  gap: 0;
+  overflow: visible;
+  height: fit-content;
+  border-bottom: 0.0625rem solid #00b3b3;
+  /* Dropdown Select */
+}
+#Authentication.signUp form.specificData .entries .entry input {
+  color: #00b3b3;
+  text-transform: uppercase;
+}
+#Authentication.signUp form.specificData .entries .entry.birthday {
+  border-bottom: 0;
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .entries .entry.birthday {
+    grid-template-columns: 0.6fr 1fr 0.6fr;
+  }
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div {
+  position: relative;
+  border: 0.125rem solid #00b3b3;
+  transition: 0.5s ease;
+  /* Mobile and below */
+  /* Tablet and above */
+}
+@media only screen and (max-width: 47.938rem) {
+  #Authentication.signUp form.specificData .entries .entry.birthday div:first-child {
+    border-bottom: 0;
+  }
+  #Authentication.signUp form.specificData .entries .entry.birthday div:last-child {
+    border-top: 0;
+  }
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .entries .entry.birthday div:first-child {
+    border-right: 0;
+  }
+  #Authentication.signUp form.specificData .entries .entry.birthday div:last-child {
+    border-left: 0;
+  }
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div:has(input[data-active=true]) {
+  background-color: #00b3b3;
+  box-shadow: 0 0 0.625rem #00b3b3, inset 0 0 0.625rem #00b3b3;
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div:has(input[data-active=true]) input {
+  color: #003333;
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div input {
+  text-align: center;
+  padding: 0.625rem;
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div input::placeholder {
+  color: #00b3b3;
+  transition: 0.5s ease;
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div input:focus::placeholder {
+  opacity: 0;
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div:first-child ul {
+  left: -0.0625rem;
+  width: calc(100% + 0.1875rem);
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div:nth-child(2) ul {
+  left: -0.0625rem;
+  width: calc(100% + 0.125rem);
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div:last-child ul {
+  left: -0.125rem;
+  width: calc(100% + 0.1875rem);
+}
+#Authentication.signUp form.specificData .entries .entry.birthday div ul {
+  border-top-width: 0.125rem;
+}
+#Authentication.signUp form.specificData .entries .entry.phone {
+  grid-template-columns: 0.15fr 0.85fr;
+  gap: 0.75rem;
+}
+#Authentication.signUp form.specificData .entries .entry.phone input {
+  border-bottom: none;
+}
+#Authentication.signUp form.specificData .entries .entry.phone .number {
+  display: grid;
+}
+#Authentication.signUp form.specificData .entries .entry.phone .code {
+  position: relative;
+}
+#Authentication.signUp form.specificData .entries .entry.phone .code input {
+  border: 0.0625rem solid #00b3b3;
+  border-bottom: none;
+  text-align: center;
+}
+#Authentication.signUp form.specificData .entries .entry.gender {
+  border: 0.125rem solid #00b3b3;
+  box-shadow: 0 0 0.625rem #00b3b3, inset 0 0 0.625rem #00b3b3;
+  border-radius: 0.15625rem;
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .entries .entry.gender {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+#Authentication.signUp form.specificData .entries .entry.gender label {
+  padding: 0.625rem;
+  z-index: 1;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+#Authentication.signUp form.specificData .entries .entry.gender label:has(input:checked) ~ .slider {
+  background-color: #00b3b3;
+}
+#Authentication.signUp form.specificData .entries .entry.gender label:has(input:checked) p {
+  color: #003333;
+}
+#Authentication.signUp form.specificData .entries .entry.gender label:nth-child(2):has(input:checked) ~ .slider {
+  transform: translateY(calc(100% + 0.125rem));
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .entries .entry.gender label:nth-child(2):has(input:checked) ~ .slider {
+    transform: translateX(calc(100% + 0.125rem));
+  }
+}
+#Authentication.signUp form.specificData .entries .entry.gender label input {
+  display: none;
+}
+#Authentication.signUp form.specificData .entries .entry.gender label p {
+  color: #00b3b3;
+  text-align: center;
+  font-weight: 600;
+  transition: 0.5s ease;
+}
+#Authentication.signUp form.specificData .entries .entry.gender .slider {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transition: 0.5s ease;
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .entries .entry.gender .slider {
+    width: 50%;
+    height: 100%;
+  }
+}
+#Authentication.signUp form.specificData .entries .entry .floating {
+  color: #00b3b3;
+}
+#Authentication.signUp form.specificData .entries .entry ul {
+  position: absolute;
+  top: 100%;
+  background-color: #003333;
+  border: 0.125rem solid #00b3b3;
+  border-top-width: 0.0625rem;
+  z-index: 10;
+  text-transform: uppercase;
+  width: 100%;
+  max-height: 10rem;
+  overflow-y: auto;
+  scrollbar-color: #00b3b3 #003333;
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .entries .entry ul {
+    scrollbar-width: thin;
+  }
+}
+#Authentication.signUp form.specificData .entries .entry ul li {
+  color: #00b3b3;
+  padding: 0.625rem 0;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+#Authentication.signUp form.specificData .entries .entry ul li:hover {
+  color: #003333;
+  background-color: #00b3b3;
+}
+#Authentication.signUp form.specificData .counter {
+  display: flex;
+  position: absolute;
+  top: 0.9375rem;
+  right: 0.9375rem;
+  color: #00b3b3;
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .counter {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+}
+#Authentication.signUp form.specificData .counter p, #Authentication.signUp form.specificData .counter i {
+  font-weight: 600;
+  transition: 0.5s ease;
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .counter p, #Authentication.signUp form.specificData .counter i {
+    font-size: 1.25rem;
+  }
+}
+#Authentication.signUp form.specificData .counter i {
+  cursor: pointer;
+  transform: translateX(-0.3125rem);
+  /* Tablet and above */
+}
+@media only screen and (min-width: 47.938rem) {
+  #Authentication.signUp form.specificData .counter i {
+    transform: translateX(-0.625rem);
+  }
+}
+#Authentication.signUp form i {
+  cursor: pointer;
+  color: #00cccc;
+  transition: 0.5s ease;
+}
+#Authentication.signUp form i:first-child:hover {
+  transform: translateX(-0.1rem);
+}
+#Authentication.signUp form i:last-child:hover {
+  transform: translateX(0.1rem);
+}
+#Authentication.signUp form i:has(+ .entries.error) {
+  color: #b00038;
+}
+#Authentication.signUp form .entries {
+  display: grid;
+  gap: 1rem;
+}
+#Authentication.signUp form .entries.error + i {
+  color: #b00038;
+}
+#Authentication.signUp form .entries.error .entry input, #Authentication.signUp form .entries.error .entry i, #Authentication.signUp form .entries.error .entry .floating {
+  color: #b00038;
+}
+#Authentication.signUp form .entries.error .entry .progress {
+  background-color: #b00038;
+  box-shadow: 0 0 0.9375rem 0.1875rem #b00038;
+}
+#Authentication.signUp form .entries.error .entry input {
+  animation: shake 0.5s ease-in-out;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-0.3125rem);
+  }
+  50% {
+    transform: translateX(0.3125rem);
+  }
+  75% {
+    transform: translateX(-0.3125rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+#Authentication.signUp form .entries .entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 0.75rem;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+#Authentication.signUp form .entries .entry input {
+  color: #00cccc;
+  transition: 0.5s ease;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+#Authentication.signUp form .entries .entry input:focus + .floating, #Authentication.signUp form .entries .entry input:not(:placeholder-shown) + .floating {
+  transform: translateY(0);
+  font-size: 0.8rem;
+}
+#Authentication.signUp form .entries .entry i {
+  font-size: 0.875rem;
+  padding-top: 1rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+#Authentication.signUp form .entries .entry .floating {
+  position: absolute;
+  color: #00cccc;
+  font-size: 1rem;
+  pointer-events: none;
+  transform: translateY(100%);
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+#Authentication.signUp form .entries .entry .progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 0.0625rem;
+  background-color: #00cccc;
+  transition: 0.5s ease;
+}
+#Authentication.signUp span {
+  background-color: transparent;
+  color: #00b3b3;
+  font-size: 2.125rem;
+  font-weight: 300;
+  text-shadow: 0.1875rem 0.1875rem #002222;
+  animation: fadeIn 1s ease-in-out, fadeOut 1s ease-in-out 1s forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@property --backgroundColor1 {
+  syntax: "<color>";
+  initial-value: #001111;
+  inherits: false;
+}
+@property --backgroundColor2 {
+  syntax: "<color>";
+  initial-value: #003333;
+  inherits: false;
+}
+#Authentication {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(to bottom, var(--backgroundColor1), var(--backgroundColor2), var(--backgroundColor1));
+  z-index: 1;
+  position: relative;
+  transition: --backgroundColor1 0.5s ease, --backgroundColor2 0.5s ease;
+}
+#Authentication.verifiedData1, #Authentication.verifiedData2, #Authentication.verifiedData3 {
+  --backgroundColor1: #002222;
+  --backgroundColor2: #004444;
+}
+#Authentication.verifiedData4, #Authentication.verifiedData5 {
+  --backgroundColor1: #003333;
+  --backgroundColor2: #002222;
+}
+#Authentication.verifiedData6, #Authentication.verifiedData7, #Authentication.verifiedData8 {
+  --backgroundColor1: #002222;
+  --backgroundColor2: #004444;
+}
